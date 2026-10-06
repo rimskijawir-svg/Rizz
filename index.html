@@ -1,62 +1,525 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#07090d"><title>SMK / LEARNING HUB</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07090d">
+<title>SMK / LEARNING HUB</title>
+
 <style>
-:root{--bg:#07090d;--p:#0c1017;--p2:#101722;--l:#1c2430;--t:#f3f5f7;--m:#77808e;--g:#31e58c;--b:#4da3ff;--r:#ff5b68}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:14px system-ui,sans-serif}button,input{font:inherit}button{cursor:pointer}.wrap{max-width:1100px;margin:auto;padding:0 15px}
-header{height:64px;border-bottom:1px solid var(--l);position:sticky;top:0;background:#07090deb;backdrop-filter:blur(12px);z-index:20}.head{height:100%;display:flex;align-items:center;justify-content:space-between;gap:15px}.logo{font-size:19px;font-weight:900}.logo span{color:var(--g);cursor:pointer}nav{display:flex;gap:5px}nav button,.mobile,.mode,.secondary{background:#101722;color:#aeb7c3;border:1px solid #202a38;border-radius:7px;padding:9px 11px}nav button.active{color:#fff}.mobile{display:none}
-.hero{padding:60px 0 45px;border-bottom:1px solid var(--l)}.ey{font-size:11px;color:#687382;letter-spacing:.13em;font-weight:800}.hero h1{font-size:clamp(45px,8vw,78px);line-height:.9;letter-spacing:-.07em;margin:14px 0}.hero em{font-style:normal;color:#8f98a6}.hero p,.panel p,.card p,.material p{color:#7d8795;line-height:1.7}.status{margin-top:22px;color:#8993a1;font-size:12px}.dot{display:inline-block;width:7px;height:7px;background:var(--g);border-radius:50%;margin-right:7px}
-.section{padding:35px 0;border-bottom:1px solid var(--l)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}h2{margin:5px 0;font-size:24px}.cards{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--l)}.card{padding:18px;border-right:1px solid var(--l);border-bottom:1px solid var(--l);min-height:145px;background:#0b1017;transition:.2s}.card:hover{background:#101722;transform:translateY(-2px)}.card .icon{font-size:25px;margin:13px 0 8px}.card h3{margin:0 0 5px}.card p{font-size:12px;margin:0}.layout,.about{display:grid;grid-template-columns:1fr 1fr;gap:15px}.panel{background:#0b1017;border:1px solid var(--l);padding:18px;border-radius:9px}.primary{background:var(--g);color:#04130b;border:0;border-radius:7px;padding:10px 14px;font-weight:800}.page,.material-page{display:none}.page.on,.material-page.on{display:block}.search{display:flex;border:1px solid var(--l);border-radius:8px;overflow:hidden;background:#0c1119}.search input{width:100%;background:none;border:0;outline:0;color:#fff;padding:11px}.search button{border:0;border-left:1px solid var(--l);background:#111823;color:#fff;padding:0 13px}.material{max-width:800px}.material h2{font-size:30px}.back{margin-bottom:15px}
-.modes{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.mode.active{border-color:var(--g);color:#fff;background:#0d2119}.mode.locked{opacity:.4}.qmeta{display:flex;justify-content:space-between;color:#687382;font-size:11px;margin-bottom:15px}.question{font-size:20px;margin-bottom:15px}.answers{display:grid;gap:8px}.answer{text-align:left;background:#0d131c;color:#dce3eb;border:1px solid #202a38;border-radius:8px;padding:13px}.answer.correct{background:#0d2119;border-color:#218a58}.answer.wrong{background:#241015;border-color:#9d3843}.quizbar{display:flex;justify-content:space-between;align-items:center;margin-top:15px;gap:10px}.muted{color:#687382}
-.profile{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}.rank{width:78px;height:78px;display:grid;place-items:center;background:#101722;border:1px solid #263242;border-radius:17px;font-size:35px}.xp{color:#77808e}.progress{height:8px;background:#151b24;border-radius:9px;overflow:hidden;margin-top:12px}.progress i{display:block;height:100%;width:0;background:var(--g);transition:.3s}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}.stat{background:#080d13;border:1px solid var(--l);padding:13px;border-radius:7px}.stat b{display:block;font-size:18px}.stat small{color:#687382}.owner{display:none;margin-top:15px;padding:15px;background:#171208;border:1px solid #4b3b12;border-radius:8px}.owner.on{display:block}.owner input,.field input{width:100%;background:#070b10;color:#fff;border:1px solid #273344;padding:11px;border-radius:7px;outline:0}.owner-tools{display:flex;gap:7px;margin-top:9px}.fields,.result{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field label{display:block;color:#8993a1;font-size:11px;margin-bottom:5px}.result{margin-top:13px}.result div{background:#080d13;border:1px solid var(--l);padding:10px;border-radius:7px}.result small{display:block;color:#687382}.aboutbox{background:#0b1017;border:1px solid var(--l);padding:20px}
-.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:50;align-items:center;justify-content:center;padding:20px}.overlay.on{display:flex}.box{width:min(390px,100%);background:#0c1017;border:1px solid #273344;border-radius:10px;padding:20px}.box input{width:100%;margin:10px 0;background:#070b10;color:#fff;border:1px solid #273344;padding:11px;border-radius:7px}.actions{display:flex;gap:7px}.actions>*{flex:1}.toast{position:fixed;right:15px;bottom:15px;background:#eef5fa;color:#071016;padding:11px 14px;border-radius:8px;opacity:0;transform:translateY(10px);transition:.2s;z-index:80}.toast.on{opacity:1;transform:none}footer{padding:32px 0;color:#505b69;font-size:11px}
-@media(max-width:720px){nav{display:none;position:absolute;top:64px;left:10px;right:10px;padding:8px;background:#0c1017;border:1px solid var(--l);border-radius:9px;flex-direction:column}nav.open{display:flex}.mobile{display:block}.cards,.layout,.about{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.search{width:100%}.profile{grid-template-columns:1fr;text-align:center}.rank{margin:auto}.stats{grid-template-columns:1fr 1fr}.fields,.result{grid-template-columns:1fr}.hero{padding:48px 0 38px}}
+:root{
+ --bg:#07090d;--p:#0c1017;--p2:#101722;--l:#1c2430;
+ --t:#f3f5f7;--m:#77808e;--g:#31e58c;--b:#4da3ff;
+ --r:#ff5b68
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font:14px system-ui,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+.wrap{max-width:1100px;margin:auto;padding:0 15px}
+
+header{
+ height:64px;border-bottom:1px solid var(--l);
+ position:sticky;top:0;background:#07090deb;
+ backdrop-filter:blur(12px);z-index:20
+}
+.head{height:100%;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:19px;font-weight:900}
+.logo span{color:var(--g);cursor:pointer}
+nav{display:flex;gap:5px}
+nav button,.mobile,.mode,.secondary{
+ background:#101722;color:#aeb7c3;border:1px solid #202a38;
+ border-radius:7px;padding:9px 11px
+}
+nav button.active{color:#fff}
+.mobile{display:none}
+
+.hero{padding:60px 0 45px;border-bottom:1px solid var(--l)}
+.ey{font-size:11px;color:#687382;letter-spacing:.13em;font-weight:800}
+.hero h1{font-size:clamp(45px,8vw,78px);line-height:.9;letter-spacing:-.07em;margin:14px 0}
+.hero em{font-style:normal;color:#8f98a6}
+.hero p,.panel p,.card p,.material p{color:#7d8795;line-height:1.7}
+.status{margin-top:22px;color:#8993a1;font-size:12px}
+.dot{display:inline-block;width:7px;height:7px;background:var(--g);border-radius:50%;margin-right:7px}
+
+.section{padding:35px 0;border-bottom:1px solid var(--l)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}
+h2{margin:5px 0;font-size:24px}
+
+.cards{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ border:1px solid var(--l)
+}
+.card{
+ padding:18px;border-right:1px solid var(--l);
+ border-bottom:1px solid var(--l);min-height:145px;
+ background:#0b1017;transition:.2s
+}
+.card:hover{background:#101722;transform:translateY(-2px)}
+.card .icon{font-size:25px;margin:13px 0 8px}
+.card h3{margin:0 0 5px}
+.card p{font-size:12px;margin:0}
+
+.layout,.about{
+ display:grid;grid-template-columns:1fr 1fr;gap:15px
+}
+.panel{
+ background:#0b1017;border:1px solid var(--l);
+ padding:18px;border-radius:9px
+}
+.primary{
+ background:var(--g);color:#04130b;border:0;
+ border-radius:7px;padding:10px 14px;font-weight:800
+}
+.page,.material-page{display:none}
+.page.on,.material-page.on{display:block}
+
+.search{
+ display:flex;border:1px solid var(--l);border-radius:8px;
+ overflow:hidden;background:#0c1119
+}
+.search input{
+ width:100%;background:none;border:0;outline:0;
+ color:#fff;padding:11px
+}
+.search button{
+ border:0;border-left:1px solid var(--l);
+ background:#111823;color:#fff;padding:0 13px
+}
+
+.material{max-width:800px}
+.material h2{font-size:30px}
+.back{margin-bottom:15px}
+
+.modes{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
+.mode.active{border-color:var(--g);color:#fff;background:#0d2119}
+.mode.locked{opacity:.4}
+
+.qmeta{
+ display:flex;justify-content:space-between;
+ color:#687382;font-size:11px;margin-bottom:15px
+}
+.question{font-size:20px;margin-bottom:15px}
+.answers{display:grid;gap:8px}
+.answer{
+ text-align:left;background:#0d131c;color:#dce3eb;
+ border:1px solid #202a38;border-radius:8px;padding:13px
+}
+.answer.correct{background:#0d2119;border-color:#218a58}
+.answer.wrong{background:#241015;border-color:#9d3843}
+.quizbar{
+ display:flex;justify-content:space-between;
+ align-items:center;margin-top:15px;gap:10px
+}
+.muted{color:#687382}
+
+.profile{
+ display:grid;grid-template-columns:auto 1fr;
+ gap:18px;align-items:center
+}
+.rank{
+ width:78px;height:78px;display:grid;place-items:center;
+ background:#101722;border:1px solid #263242;
+ border-radius:17px;font-size:35px
+}
+.xp{color:#77808e}
+.progress{
+ height:8px;background:#151b24;border-radius:9px;
+ overflow:hidden;margin-top:12px
+}
+.progress i{
+ display:block;height:100%;width:0;
+ background:var(--g);transition:.3s
+}
+.stats{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:8px;margin-top:18px
+}
+.stat{
+ background:#080d13;border:1px solid var(--l);
+ padding:13px;border-radius:7px
+}
+.stat b{display:block;font-size:18px}
+.stat small{color:#687382}
+
+.owner{
+ display:none;margin-top:15px;padding:15px;
+ background:#171208;border:1px solid #4b3b12;border-radius:8px
+}
+.owner.on{display:block}
+.owner input,.field input{
+ width:100%;background:#070b10;color:#fff;
+ border:1px solid #273344;padding:11px;
+ border-radius:7px;outline:0
+}
+.owner-tools{display:flex;gap:7px;margin-top:9px}
+.fields,.result{
+ display:grid;grid-template-columns:1fr 1fr;gap:10px
+}
+.field label{
+ display:block;color:#8993a1;font-size:11px;margin-bottom:5px
+}
+.result{margin-top:13px}
+.result div{
+ background:#080d13;border:1px solid var(--l);
+ padding:10px;border-radius:7px
+}
+.result small{display:block;color:#687382}
+.result b{display:block;margin-top:3px}
+
+.aboutbox{
+ background:#0b1017;border:1px solid var(--l);
+ padding:20px
+}
+
+.overlay{
+ display:none;position:fixed;inset:0;background:#000b;
+ z-index:50;align-items:center;justify-content:center;padding:20px
+}
+.overlay.on{display:flex}
+.box{
+ width:min(390px,100%);background:#0c1017;
+ border:1px solid #273344;border-radius:10px;padding:20px
+}
+.box input{
+ width:100%;margin:10px 0;background:#070b10;color:#fff;
+ border:1px solid #273344;padding:11px;border-radius:7px
+}
+.actions{display:flex;gap:7px}
+.actions>*{flex:1}
+
+.toast{
+ position:fixed;right:15px;bottom:15px;
+ background:#eef5fa;color:#071016;padding:11px 14px;
+ border-radius:8px;opacity:0;transform:translateY(10px);
+ transition:.2s;z-index:80
+}
+.toast.on{opacity:1;transform:none}
+
+footer{padding:32px 0;color:#505b69;font-size:11px}
+
+@media(max-width:720px){
+ nav{
+  display:none;position:absolute;top:64px;left:10px;right:10px;
+  padding:8px;background:#0c1017;border:1px solid var(--l);
+  border-radius:9px;flex-direction:column
+ }
+ nav.open{display:flex}
+ .mobile{display:block}
+ .cards,.layout,.about{grid-template-columns:1fr}
+ .section-head{align-items:start;flex-direction:column}
+ .search{width:100%}
+ .profile{grid-template-columns:1fr;text-align:center}
+ .rank{margin:auto}
+ .stats{grid-template-columns:1fr 1fr}
+ .fields,.result{grid-template-columns:1fr}
+ .hero{padding:48px 0 38px}
+}
 </style>
 </head>
+
 <body>
 
-<header><div class="wrap head">
-<div class="logo"><span id="smk">SMK</span> / LEARNING HUB</div>
-<nav id="nav">
-<button class="active" data-page="home">Home</button><button data-page="materi">Materi</button>
-<button data-page="soal">Latihan</button><button data-page="tools">Tools</button><button data-page="profil">Profil</button><button data-page="about">Tentang</button>
-</nav><button class="mobile" id="menu">☰</button>
-</div></header>
+<header>
+<div class="wrap head">
+ <div class="logo"><span id="smk">SMK</span> / LEARNING HUB</div>
+
+ <nav id="nav">
+  <button class="active" data-page="home">Home</button>
+  <button data-page="materi">Materi</button>
+  <button data-page="soal">Latihan</button>
+  <button data-page="tools">Tools</button>
+  <button data-page="profil">Profil</button>
+  <button data-page="about">Tentang</button>
+ </nav>
+
+ <button class="mobile" id="menu">☰</button>
+</div>
+</header>
 
 <main class="wrap">
 
 <section id="home" class="page on">
-<div class="hero"><div class="ey">SMK / TJKT / ASJ</div><h1>Belajar.<br><em>Lebih simpel.</em></h1><p>Portal belajar ringan untuk materi jaringan, administrasi sistem, latihan soal dan tools siswa SMK.</p><div class="status"><i class="dot"></i>V1 / ONLINE</div></div>
-<div class="section"><div class="section-head"><div><div class="ey">LATEST / MATERIAL</div><h2>Materi terbaru</h2></div><button class="primary" data-page="materi">Lihat semua</button></div><div class="cards" id="homeCards"></div></div>
-<div class="section"><div class="layout"><div class="panel"><h3>📝 Latihan soal</h3><p>30 soal per kategori. Setiap sesi mengambil 15 soal secara acak.</p><button class="primary" data-page="soal">Mulai latihan →</button></div><div class="panel"><h3>🧮 Subnet Tool</h3><p>Hitung network, broadcast, host dan subnet mask.</p><button class="primary" data-page="tools">Buka tool →</button></div></div></div>
-<div class="section"><div class="section-head"><div><div class="ey">YOUR PROGRESS</div><h2>Progress belajar</h2></div><button class="secondary" data-page="profil">Lihat progress</button></div><div class="panel"><div class="profile"><div class="rank" id="hrank">🌱</div><div><b id="hname">Beginner</b><div class="xp" id="hxp">0 XP</div><div class="progress"><i id="hprog"></i></div></div></div></div></div>
+
+ <div class="hero">
+  <div class="ey">SMK / TJKT / ASJ</div>
+  <h1>Belajar.<br><em>Lebih simpel.</em></h1>
+  <p>Portal belajar ringan untuk materi jaringan, administrasi sistem, latihan soal dan tools siswa SMK.</p>
+  <div class="status"><i class="dot"></i>V1 / ONLINE</div>
+ </div>
+
+ <div class="section">
+  <div class="section-head">
+   <div>
+    <div class="ey">LATEST / MATERIAL</div>
+    <h2>Materi terbaru</h2>
+   </div>
+   <button class="primary" data-page="materi">Lihat semua</button>
+  </div>
+  <div class="cards" id="homeCards"></div>
+ </div>
+
+ <div class="section">
+  <div class="layout">
+   <div class="panel">
+    <h3>📝 Latihan soal</h3>
+    <p>30 soal per kategori. Setiap sesi mengambil 15 soal secara acak.</p>
+    <button class="primary" data-page="soal">Mulai latihan →</button>
+   </div>
+
+   <div class="panel">
+    <h3>🧮 Subnet Tool</h3>
+    <p>Hitung network, broadcast, host dan subnet mask.</p>
+    <button class="primary" data-page="tools">Buka tool →</button>
+   </div>
+  </div>
+ </div>
+
+ <div class="section">
+  <div class="section-head">
+   <div>
+    <div class="ey">YOUR PROGRESS</div>
+    <h2>Progress belajar</h2>
+   </div>
+   <button class="secondary" data-page="profil">Lihat progress</button>
+  </div>
+
+  <div class="panel">
+   <div class="profile">
+    <div class="rank" id="hrank">🌱</div>
+    <div>
+     <b id="hname">Beginner</b>
+     <div class="xp" id="hxp">0 XP</div>
+     <div class="progress"><i id="hprog"></i></div>
+    </div>
+   </div>
+  </div>
+ </div>
+
 </section>
 
-<section id="materi" class="page"><div class="section"><div class="section-head"><div><div class="ey">SMK / MATERIALS</div><h2>Materi TJKT & ASJ</h2></div><div class="search"><input id="search" placeholder="Search materi..."><button id="searchBtn">⌕</button></div></div><div class="cards" id="cards"></div></div></section>
 
-<section id="materialPage" class="material-page"><div class="section"><button class="primary back" id="back">← Kembali</button><div class="panel material" id="material"></div></div></section>
+<section id="materi" class="page">
+<div class="section">
 
-<section id="soal" class="page"><div class="section"><div class="ey">SMK / QUIZ</div><h2>Latihan Soal</h2><div class="panel">
-<div class="modes"><button class="mode active" data-d="easy">Easy</button><button class="mode locked" data-d="normal">Normal 🔒</button><button class="mode locked" data-d="hard">Hard 🔒</button><button class="mode locked" data-d="expert">Expert 🔒</button></div>
-<div style="margin:8px 0"><button class="mode active" id="tjkt">TJKT</button><button class="mode" id="asj">ASJ</button></div>
-<div class="qmeta"><span id="cat">TJKT</span><span id="count">1 / 15</span></div><div class="question" id="question"></div><div class="answers" id="answers"></div><div class="quizbar"><span class="muted" id="feed"></span><button class="primary" id="next" disabled>Berikutnya →</button></div>
-</div></div></section>
+ <div class="section-head">
+  <div>
+   <div class="ey">SMK / MATERIALS</div>
+   <h2>Materi TJKT & ASJ</h2>
+  </div>
 
-<section id="tools" class="page"><div class="section"><div class="ey">SMK / NETWORK TOOL</div><h2>Subnet Calculator</h2><div class="panel"><div class="fields"><div class="field"><label>IPv4 ADDRESS</label><input id="ip" value="192.168.46.5"></div><div class="field"><label>PREFIX / CIDR</label><input id="prefix" type="number" min="0" max="32" value="24"></div></div><button class="primary" id="calc" style="margin-top:14px">Calculate</button><div class="result" id="result"></div></div></div></section>
+  <div class="search">
+   <input id="search" placeholder="Search materi...">
+   <button id="searchBtn">⌕</button>
+  </div>
+ </div>
 
-<section id="profil" class="page"><div class="section"><div class="ey">SMK / PROFILE</div><h2>Progress Belajar</h2><div class="panel"><div class="profile"><div class="rank" id="prank">🌱</div><div><b id="pname">Beginner</b><div class="xp" id="pxp">0 XP</div><div class="progress"><i id="pprog"></i></div></div></div><div class="stats"><div class="stat"><b id="sx">0</b><small>XP</small></div><div class="stat"><b id="sm">0</b><small>Materi selesai</small></div><div class="stat"><b id="sq">0%</b><small>Best Quiz</small></div></div><button class="secondary" id="reset" style="margin-top:15px">Reset Progress</button><div class="owner" id="owner"><b>🔐 OWNER MODE</b><p>Custom rank</p><input id="orank" placeholder="Masukkan rank"><div class="owner-tools"><button class="primary" id="save">Simpan</button><button class="secondary" id="clear">Hapus</button></div></div></div></div></section>
+ <div class="cards" id="cards"></div>
 
-<section id="about" class="page"><div class="section"><div class="ey">SMK / ABOUT</div><h2>Tentang</h2><div class="about"><div class="aboutbox"><h3>SMK Learning Hub</h3><p>Portal belajar V1 untuk siswa TJKT dan ASJ dengan tambahan fitur V2.</p></div><div class="aboutbox"><h3>V1 + V2</h3><p>Materi, quiz, XP, rank, progress, search, subnet calculator dan Owner Mode. Semua berjalan langsung di browser.</p></div></div></div></section>
+</div>
+</section>
+
+
+<section id="materialPage" class="material-page">
+<div class="section">
+
+ <button class="primary back" id="back">← Kembali</button>
+
+ <div class="panel material" id="material"></div>
+
+</div>
+</section>
+
+
+<section id="soal" class="page">
+<div class="section">
+
+ <div class="ey">SMK / QUIZ</div>
+ <h2>Latihan Soal</h2>
+
+ <div class="panel">
+
+  <div class="modes">
+   <button class="mode active" data-d="easy">Easy</button>
+   <button class="mode locked" data-d="normal">Normal 🔒</button>
+   <button class="mode locked" data-d="hard">Hard 🔒</button>
+   <button class="mode locked" data-d="expert">Expert 🔒</button>
+  </div>
+
+  <div style="margin:8px 0">
+   <button class="mode active" id="tjkt">TJKT</button>
+   <button class="mode" id="asj">ASJ</button>
+  </div>
+
+  <div class="qmeta">
+   <span id="cat">TJKT / EASY</span>
+   <span id="count">1 / 15</span>
+  </div>
+
+  <div class="question" id="question"></div>
+
+  <div class="answers" id="answers"></div>
+
+  <div class="quizbar">
+   <span class="muted" id="feed"></span>
+   <button class="primary" id="next" disabled>Berikutnya →</button>
+  </div>
+
+ </div>
+
+</div>
+</section>
+
+
+<section id="tools" class="page">
+<div class="section">
+
+ <div class="ey">SMK / NETWORK TOOL</div>
+ <h2>Subnet Calculator</h2>
+
+ <div class="panel">
+
+  <div class="fields">
+
+   <div class="field">
+    <label>IPv4 ADDRESS</label>
+    <input id="ip" value="192.168.46.5">
+   </div>
+
+   <div class="field">
+    <label>PREFIX / CIDR</label>
+    <input id="prefix" type="number" min="0" max="32" value="24">
+   </div>
+
+  </div>
+
+  <button class="primary" id="calc" style="margin-top:14px">
+   Calculate
+  </button>
+
+  <div class="result" id="result"></div>
+
+ </div>
+</div>
+</section>
+
+
+<section id="profil" class="page">
+<div class="section">
+
+ <div class="ey">SMK / PROFILE</div>
+ <h2>Progress Belajar</h2>
+
+ <div class="panel">
+
+  <div class="profile">
+
+   <div class="rank" id="prank">🌱</div>
+
+   <div>
+    <b id="pname">Beginner</b>
+    <div class="xp" id="pxp">0 XP</div>
+    <div class="progress"><i id="pprog"></i></div>
+   </div>
+
+  </div>
+
+  <div class="stats">
+
+   <div class="stat">
+    <b id="sx">0</b>
+    <small>XP</small>
+   </div>
+
+   <div class="stat">
+    <b id="sm">0</b>
+    <small>Materi selesai</small>
+   </div>
+
+   <div class="stat">
+    <b id="sq">0%</b>
+    <small>Best Quiz</small>
+   </div>
+
+  </div>
+
+  <button class="secondary" id="reset" style="margin-top:15px">
+   Reset Progress
+  </button>
+
+  <div class="owner" id="owner">
+   <b>🔐 OWNER MODE</b>
+   <p>Custom rank</p>
+
+   <input id="orank" placeholder="Masukkan rank">
+
+   <div class="owner-tools">
+    <button class="primary" id="save">Simpan</button>
+    <button class="secondary" id="clear">Hapus</button>
+   </div>
+  </div>
+
+ </div>
+</div>
+</section>
+
+
+<section id="about" class="page">
+<div class="section">
+
+ <div class="ey">SMK / ABOUT</div>
+ <h2>Tentang</h2>
+
+ <div class="about">
+
+  <div class="aboutbox">
+   <h3>SMK Learning Hub</h3>
+   <p>Portal belajar V1 untuk siswa TJKT dan ASJ dengan tambahan fitur V2.</p>
+  </div>
+
+  <div class="aboutbox">
+   <h3>V1 + V2</h3>
+   <p>Materi, quiz, XP, rank, progress, search, subnet calculator dan Owner Mode. Semua berjalan langsung di browser.</p>
+  </div>
+
+ </div>
+
+</div>
+</section>
 
 </main>
-<footer><div class="wrap">SMK / LEARNING HUB — V1 • TJKT / ASJ • By Rizki</div></footer>
 
-<div class="overlay" id="overlay"><div class="box"><div class="ey">OWNER ACCESS</div><h3>Masukkan Kode Owner</h3><input id="code" type="password" placeholder="Kode Owner"><div class="actions"><button class="secondary" id="cancel">Batal</button><button class="primary" id="login">Masuk</button></div></div></div>
+
+<footer>
+<div class="wrap">
+SMK / LEARNING HUB — V1 • TJKT / ASJ • By Rizki
+</div>
+</footer>
+
+
+<div class="overlay" id="overlay">
+<div class="box">
+
+ <div class="ey">OWNER ACCESS</div>
+ <h3>Masukkan Kode Owner</h3>
+
+ <input id="code" type="password" placeholder="Kode Owner">
+
+ <div class="actions">
+  <button class="secondary" id="cancel">Batal</button>
+  <button class="primary" id="login">Masuk</button>
+ </div>
+
+</div>
+</div>
+
+
 <div class="toast" id="toast"></div>
 
+
 <script>
+/* ================= DATA ================= */
+
 const M=[
 ["IP Address & Subnetting","TJKT","🌐","Dasar IPv4, CIDR, subnet mask, network, broadcast dan host.","IP address adalah alamat perangkat dalam jaringan. CIDR menentukan bagian network dan host."],
 ["MikroTik Dasar","TJKT","📡","IP, DNS, DHCP dan NAT.","Konfigurasi dasar MikroTik meliputi interface, IP, DNS, DHCP dan NAT."],
@@ -135,47 +598,35 @@ const A=[
 ];
 
 const ranks=[
-[0,"Beginner","🌱"],[100,"Learner","📖"],[300,"Junior Technician","🔧"],
-[600,"Network Technician","🖧"],[1000,"Security Specialist","🛡️"],
-[1500,"System Expert","⚡"],[2500,"TJKT Master","👑"]
+[0,"Beginner","🌱"],
+[100,"Learner","📖"],
+[300,"Junior Technician","🔧"],
+[600,"Network Technician","🖧"],
+[1000,"Security Specialist","🛡️"],
+[1500,"System Expert","⚡"],
+[2500,"TJKT Master","👑"]
 ];
-let S=JSON.parse(localStorage.getItem("rizz_learning")||'{"xp":0,"mat":[],"best":{},"custom":""}');
-const save=()=>localStorage.setItem("rizz_learning",JSON.stringify(S));
-const toast=x=>{let e=$("#toast");e.textContent=x;e.classList.add("on");setTimeout(()=>e.classList.remove("on"),1800)};
-const $=x=>document.querySelector(x), $$=x=>document.querySelectorAll(x);
-function rank(){let r=ranks[0];for(const x of ranks)if(S.xp>=x[0])r=x;return S.custom||r[1]}
-function info(){let r=ranks[0];for(const x of ranks)if(S.xp>=x[0])r=x;return r}
-function nav(id){$$(".page,.material-page").forEach(x=>x.classList.remove("on"));$("#"+id).classList.add("on");$$("nav button").forEach(x=>x.classList.toggle("active",x.dataset.page==id));$("#nav").classList.remove("open");scrollTo(0,0);update()}
-function update(){let r=info(),next=ranks.find(x=>x[0]>S.xp),pct=next?Math.min(100,(S.xp-r[0])*100/(next[0]-r[0])):100,n=rank();["hname","pname"].forEach(x=>$( "#"+x).textContent=n);$("#hrank").textContent=$("#prank").textContent=r[2];$("#hxp").textContent=$("#pxp").textContent=S.xp+" XP";$("#hprog").style.width=$("#pprog").style.width=pct+"%";$("#sx").textContent=S.xp;$("#sm").textContent=S.mat.length;let b=Math.max(...Object.values(S.best),0);$("#sq").textContent=b+"%";$$(".mode").forEach(x=>{let d=x.dataset.d;if(!d)return;let ok=d=="easy"||d=="normal"&&b>=70||d=="hard"&&S.best.normal>=75||d=="expert"&&S.best.hard>=80;x.classList.toggle("locked",!ok);x.textContent=d[0].toUpperCase()+d.slice(1)+(ok?"":" 🔒")})}
-function cards(q=""){let a=M.filter(x=>x.join(" ").toLowerCase().includes(q.toLowerCase()));$("#cards").innerHTML=a.map((x,i)=>`<div class="card" data-m="${M.indexOf(x)}"><small>${String(M.indexOf(x)+1).padStart(2,"0")} / ${x[1]}</small><div class="icon">${x[2]}</div><h3>${x[0]}</h3><p>${x[3]}</p></div>`).join("");$$(".card").forEach(e=>e.onclick=()=>openMat(+e.dataset.m))}
-function openMat(i){let x=M[i];nav("materialPage");$("#material").innerHTML=`<div class="ey">${x[1]}</div><div style="font-size:40px">${x[2]}</div><h2>${x[0]}</h2><p>${x[3]}</p><h3>Materi</h3><p>${x[4]}</p><button class="primary" id="done">${S.mat.includes(i)?"✓ Sudah selesai":"+10 XP • Tandai selesai"}</button>`;$("#done").onclick=()=>{if(!S.mat.includes(i)){S.mat.push(i);S.xp+=10;save();update();toast("+10 XP");$("#done").textContent="✓ Sudah selesai"}}}
-$("#homeCards").innerHTML=M.slice(0,3).map((x,i)=>`<div class="card" data-m="${i}"><small>0${i+1} / ${x[1]}</small><div class="icon">${x[2]}</div><h3>${x[0]}</h3><p>${x[3]}</p></div>`).join("");$$("[data-m]").forEach(e=>e.onclick=()=>openMat(+e.dataset.m));cards();
-$$("[data-page]").forEach(e=>e.onclick=()=>nav(e.dataset.page));
-$("#menu").onclick=()=>$("#nav").classList.toggle("open");$("#back").onclick=()=>nav("materi");
-$("#search").oninput=e=>cards(e.target.value);$("#searchBtn").onclick=()=>cards($("#search").value);
 
-let diff="easy",cat="TJKT",list=[],qi=0,answered=false;
-function pool(){let p=(cat=="TJKT"?T:A).map(x=>({q:x[0],a:x[1],o:x.slice(1)}));p.sort(()=>Math.random()-.5);return p.slice(0,15)}
-function start(){list=pool();qi=0;showQ()}
-function showQ(){answered=false;let x=list[qi];$("#cat").textContent=cat+" / "+diff.toUpperCase();$("#count").textContent=qi+1+" / 15";$("#question").textContent=x.q;$("#feed").textContent="";$("#next").disabled=true;let o=[...x.o].sort(()=>Math.random()-.5);$("#answers").innerHTML=o.map(v=>`<button class="answer">${v}</button>`).join("");$$(".answer").forEach(e=>e.onclick=()=>answer(e,x.a))}
-function answer(e,a){if(answered)return;answered=true;let ok=e.textContent==a;e.classList.add(ok?"correct":"wrong");if(!ok)$$(".answer").forEach(x=>{if(x.textContent==a)x.classList.add("correct")});$("#feed").textContent=ok?"✓ Benar":"✕ Salah";$("#next").disabled=false}
-$$(".mode").forEach(e=>e.onclick=()=>{let d=e.dataset.d,b=Math.max(...Object.values(S.best),0),ok=d=="easy"||d=="normal"&&b>=70||d=="hard"&&S.best.normal>=75||d=="expert"&&S.best.hard>=80;if(!ok)return toast("Level masih terkunci");diff=d;$$(".mode").forEach(x=>x.classList.remove("active"));e.classList.add("active");start()});
-$("#tjkt").onclick=()=>{cat="TJKT";$("#tjkt").classList.add("active");$("#asj").classList.remove("active");start()};
-$("#asj").onclick=()=>{cat="ASJ";$("#asj").classList.add("active");$("#tjkt").classList.remove("active");start()};
-$("#next").onclick=()=>{if(qi<14){qi++;showQ()}else{let score=Math.round(list.filter((x,i)=>false).length);toast("Quiz selesai!");let xp={easy:5,normal:10,hard:15,expert:25}[diff];S.xp+=xp;S.best[diff]=Math.max(S.best[diff]||0,100);save();update();start()}};
-start();
 
-function ipnum(s){let a=s.split(".").map(Number);return a.length==4&&a.every(x=>Number.isInteger(x)&&x>=0&&x<=255)?a.reduce((n,x)=>n*256+x):null}
-function ips(n){return[(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255].join(".")}
-$("#calc").onclick=()=>{let n=ipnum($("#ip").value),p=+$("#prefix").value;if(n===null||p<0||p>32)return toast("IPv4 / CIDR tidak valid");let mask=p==0?0:(0xffffffff<<(32-p))>>>0,net=(n&mask)>>>0,total=2**(32-p),bc=(net+total-1)>>>0,hosts=p>=31?total:Math.max(0,total-2);$("#result").innerHTML=`<div><small>NETWORK</small><b>${ips(net)}</b></div><div><small>BROADCAST</small><b>${ips(bc)}</b></div><div><small>MASK</small><b>${ips(mask)}</b></div><div><small>HOST</small><b>${hosts}</b></div>`};
+/* ================= STORAGE ================= */
 
-$("#reset").onclick=()=>{if(confirm("Reset semua progress?")){S={xp:0,mat:[],best:{},custom:""};save();update();toast("Progress direset")}};
-let taps=0,timer;$("#smk").onclick=()=>{taps++;clearTimeout(timer);timer=setTimeout(()=>taps=0,1000);if(taps>=5){taps=0;$("#overlay").classList.add("on");$("#code").focus()}};
-$("#cancel").onclick=()=>$("#overlay").classList.remove("on");
-$("#login").onclick=()=>{if($("#code").value==="Rizki ckrk"){$("#overlay").classList.remove("on");$("#owner").classList.add("on");toast("Owner Mode aktif")}else toast("Kode salah")};
-$("#save").onclick=()=>{S.custom=$("#orank").value.trim();save();update();toast("Rank disimpan")};
-$("#clear").onclick=()=>{S.custom="";$("#orank").value="";save();update();toast("Custom rank dihapus")};
-update();
-</script>
-</body>
-</html>
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+const KEY="rizz_learning_v2";
+
+let S;
+
+try{
+ S=JSON.parse(localStorage.getItem(KEY)||"null");
+}catch(e){
+ S=null;
+}
+
+if(!S||typeof S!=="object"){
+ S={xp:0,mat:[],best:{},custom:""};
+}
+
+S.xp=Number(S.xp)||0;
+S.mat=Array.isArray(S.mat)?S.mat:[];
+S.best=S.best&&typeof S.best==="object"?S.best:{};
+  
