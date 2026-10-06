@@ -1,91 +1,1155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#07090d">
-<title>SMK / LEARNING HUB</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7c3aed">
+<meta name="description" content="Rizz Learning Hub - Materi TJKT dan ASJ">
+<title>Rizz Learning Hub</title>
+
 <style>
-:root{--bg:#07090d;--panel:#0c1017;--line:#1c2430;--text:#f3f5f7;--muted:#77808e;--green:#31e58c;--blue:#4da3ff;--red:#ff5b68}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;font-size:14px}.wrap{max-width:1180px;margin:auto;padding:0 18px}
-header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;position:sticky;top:0;background:rgba(7,9,13,.93);backdrop-filter:blur(15px);z-index:20}.head{display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-weight:900;letter-spacing:-.03em;font-size:20px}.logo span{color:var(--green)}nav{display:flex;gap:6px}nav button{background:none;color:#9ba4b1;border:1px solid transparent;padding:9px 12px;border-radius:8px}nav button:hover,nav button.active{color:#fff;background:#101722;border-color:#202a38}.lang{color:#929aa7;font-size:12px;margin-left:auto}.mobile{display:none}
-.hero{padding:70px 0 58px;border-bottom:1px solid var(--line)}.eyebrow{color:#687383;font-size:11px;letter-spacing:.14em;font-weight:800}.hero h1{font-size:clamp(42px,8vw,82px);letter-spacing:-.07em;line-height:.92;margin:14px 0 18px}.hero h1 em{font-style:normal;color:#8f98a6}.hero p{max-width:620px;color:#8993a1;line-height:1.7;margin:0}.hero .status{display:inline-flex;align-items:center;gap:7px;margin-top:25px;color:#8e99a8;font-size:12px}.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}
-.section{padding:38px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}.section h2{font-size:24px;letter-spacing:-.03em;margin:6px 0}.section-head span{color:#697382;font-size:11px}.search{width:min(460px,100%);display:flex;background:#0c1119;border:1px solid var(--line);border-radius:9px;overflow:hidden}.search input{flex:1;background:none;border:0;outline:0;color:#fff;padding:12px}.search button{background:#121a25;color:#dbe2eb;padding:0 15px;border-left:1px solid var(--line)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.card{padding:20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:155px;background:linear-gradient(135deg,#0a0e14,#0c1118);cursor:pointer;transition:.15s}.card:hover{background:#0f151e;transform:translateY(-1px)}.number{font-size:11px;color:#4f5b6b}.card .icon{font-size:25px;margin:17px 0 10px}.card h3{font-size:16px;margin:0 0 7px}.card p{color:#6f7987;font-size:12px;line-height:1.5;margin:0}.tag{display:inline-block;color:var(--green);font-size:10px;border:1px solid #164f39;border-radius:20px;padding:4px 7px}
-.layout{display:grid;grid-template-columns:1.3fr .7fr;gap:22px}.panel{border:1px solid var(--line);background:#0b1017;padding:20px;border-radius:10px}.panel h3{margin:0 0 5px}.panel p{color:#788291;line-height:1.65}.list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}.list button{background:#0b1017;color:#dfe5ec;text-align:left;padding:14px;border:0}.list button:hover{background:#111823}.list small{display:block;color:#657080;margin-top:3px}
-.quiz{max-width:760px}.qmeta{display:flex;justify-content:space-between;color:#687382;font-size:11px;margin-bottom:16px}.question{font-size:20px;line-height:1.4;margin-bottom:18px}.answers{display:grid;gap:8px}.answer{background:#0d131c;color:#dce3eb;border:1px solid #202a38;border-radius:8px;padding:13px;text-align:left}.answer:hover{border-color:#3b4a60}.answer.correct{border-color:#218a58;background:#0d2119}.answer.wrong{border-color:#9d3843;background:#241015}.quizbar{display:flex;justify-content:space-between;align-items:center;margin-top:17px;gap:12px}.primary{background:var(--green);color:#04130b;border:0;border-radius:7px;padding:10px 14px;font-weight:850}.muted{color:#687382}
-.toolgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field label{display:block;color:#8993a1;font-size:11px;margin-bottom:6px}.field input{width:100%;background:#070b10;color:#fff;border:1px solid #232e3c;border-radius:7px;padding:11px;outline:none}.result{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.result div{border:1px solid var(--line);background:#080d13;padding:11px;border-radius:7px}.result small{display:block;color:#687382;font-size:10px}.result b{display:block;margin-top:3px}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:20px}.aboutbox{border:1px solid var(--line);padding:22px;background:#0b1017}.aboutbox p{color:#788291;line-height:1.7}
-footer{padding:35px 0;color:#505b69;font-size:11px}.toast{position:fixed;right:18px;bottom:18px;background:#eaf2f8;color:#071016;padding:11px 14px;border-radius:8px;opacity:0;transform:translateY(10px);transition:.2s;z-index:99}.toast.show{opacity:1;transform:none}
-@media(max-width:720px){.wrap{padding:0 14px}header{height:62px}.head{width:100%}nav{display:none}.mobile{display:block;background:#111823;color:#fff;border:1px solid #202a38;border-radius:7px;padding:8px 10px}.lang{display:none}.hero{padding:48px 0 40px}.hero h1{font-size:52px}.cards{grid-template-columns:1fr}.card{min-height:130px}.layout,.about{grid-template-columns:1fr}.section{padding:30px 0}.section-head{align-items:start;gap:12px;flex-direction:column}.toolgrid{grid-template-columns:1fr}.search{width:100%}.aboutbox{padding:18px}}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --primary:#7c3aed;
+  --primary2:#a855f7;
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#171717;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+body.dark{
+  --bg:#0f0f14;
+  --card:#18181f;
+  --text:#f5f5f5;
+  --muted:#a1a1aa;
+  --border:#292933;
+  --shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+  color:var(--primary);
+  white-space:nowrap;
+}
+
+.logo span{
+  color:var(--text);
+}
+
+.search{
+  flex:1;
+  position:relative;
+}
+
+.search input{
+  width:100%;
+  padding:12px 18px;
+  border:1px solid var(--border);
+  border-radius:25px;
+  outline:none;
+  background:var(--bg);
+  color:var(--text);
+  font-size:14px;
+}
+
+.icon-btn{
+  border:0;
+  background:var(--bg);
+  color:var(--text);
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* LAYOUT */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#7c3aed,#9333ea,#c026d3);
+  color:white;
+  padding:45px 35px;
+  border-radius:25px;
+  margin-bottom:30px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  position:relative;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
+  right:-70px;
+  top:-80px;
+}
+
+.hero h1{
+  font-size:38px;
+  margin-bottom:12px;
+  position:relative;
+  z-index:2;
+}
+
+.hero p{
+  max-width:700px;
+  line-height:1.7;
+  opacity:.95;
+  position:relative;
+  z-index:2;
+}
+
+.stats{
+  display:flex;
+  gap:12px;
+  margin-top:25px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:2;
+}
+
+.stat{
+  background:rgba(255,255,255,.15);
+  padding:10px 16px;
+  border-radius:14px;
+  font-size:14px;
+}
+
+/* SECTION */
+.section-title{
+  margin:35px 0 18px;
+}
+
+.section-title h2{
+  font-size:25px;
+}
+
+.section-title p{
+  color:var(--muted);
+  margin-top:5px;
+}
+
+/* CATEGORY GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+}
+
+.category{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:22px;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:var(--shadow);
+}
+
+.category:hover{
+  transform:translateY(-5px);
+  border-color:var(--primary2);
+}
+
+.category-icon{
+  font-size:35px;
+  margin-bottom:12px;
+}
+
+.category h3{
+  margin-bottom:8px;
+}
+
+.category p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+
+.count{
+  display:inline-block;
+  margin-top:15px;
+  background:#ede9fe;
+  color:#6d28d9;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+body.dark .count{
+  background:#2e1065;
+  color:#d8b4fe;
+}
+
+/* MATERIAL LIST */
+#materialPage{
+  display:none;
+}
+
+.back{
+  border:0;
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:10px 16px;
+  border-radius:12px;
+  cursor:pointer;
+  margin-bottom:20px;
+}
+
+.material-header{
+  background:linear-gradient(135deg,#7c3aed,#a855f7);
+  color:white;
+  border-radius:22px;
+  padding:30px;
+  margin-bottom:22px;
+}
+
+.material-header h1{
+  margin-bottom:8px;
+}
+
+.material-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+}
+
+.material-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.material-card:hover{
+  transform:translateY(-3px);
+  border-color:var(--primary);
+}
+
+.material-card h3{
+  margin-bottom:8px;
+}
+
+.material-card p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* DETAIL */
+#detailPage{
+  display:none;
+}
+
+.detail{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+
+.detail h1{
+  color:var(--primary);
+  margin-bottom:18px;
+}
+
+.detail h2{
+  margin:28px 0 12px;
+}
+
+.detail h3{
+  margin:20px 0 10px;
+}
+
+.detail p,
+.detail li{
+  line-height:1.8;
+}
+
+.detail ul,
+.detail ol{
+  margin-left:25px;
+  margin-top:8px;
+}
+
+.note{
+  background:#f3e8ff;
+  border-left:5px solid var(--primary);
+  padding:15px;
+  border-radius:10px;
+  margin:18px 0;
+}
+
+body.dark .note{
+  background:#25133f;
+}
+
+.tip{
+  background:#ecfdf5;
+  border-left:5px solid #10b981;
+  padding:15px;
+  border-radius:10px;
+  margin:18px 0;
+}
+
+body.dark .tip{
+  background:#06271c;
+}
+
+.warning{
+  background:#fff7ed;
+  border-left:5px solid #f97316;
+  padding:15px;
+  border-radius:10px;
+  margin:18px 0;
+}
+
+body.dark .warning{
+  background:#321b0b;
+}
+
+code{
+  background:#111827;
+  color:#e5e7eb;
+  padding:3px 6px;
+  border-radius:5px;
+}
+
+pre{
+  background:#111827;
+  color:#e5e7eb;
+  padding:18px;
+  border-radius:12px;
+  overflow-x:auto;
+  margin:15px 0;
+  line-height:1.6;
+}
+
+/* QUIZ */
+.quiz{
+  margin-top:35px;
+  padding-top:20px;
+  border-top:1px solid var(--border);
+}
+
+.question{
+  background:var(--bg);
+  padding:18px;
+  border-radius:14px;
+  margin:15px 0;
+}
+
+.question label{
+  display:block;
+  padding:9px;
+  cursor:pointer;
+}
+
+.check-btn{
+  background:var(--primary);
+  color:white;
+  border:0;
+  padding:12px 20px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.result{
+  margin-top:15px;
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+  margin-top:50px;
+  padding:30px 20px;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+
+/* MOBILE */
+@media(max-width:650px){
+  .nav{
+    flex-wrap:wrap;
+  }
+
+  .search{
+    order:3;
+    flex-basis:100%;
+  }
+
+  .hero{
+    padding:30px 22px;
+  }
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .container{
+    padding:20px 14px;
+  }
+
+  .detail{
+    padding:20px;
+  }
+}
 </style>
 </head>
-<body>
-<header><div class="wrap head"><div class="logo">SMK <span>/</span> LEARNING HUB</div><nav>
-<button class="active" data-page="home">Home</button><button data-page="materi">Materi</button><button data-page="soal">Latihan</button><button data-page="tools">Tools</button><button data-page="about">Tentang</button></nav><div class="lang">ID</div><button class="mobile" id="mobileBtn">☰</button></div></header>
 
-<main class="wrap">
-<section id="home" class="page">
-<div class="hero"><div class="eyebrow">SMK / TJKT / ASJ</div><h1>Belajar.<br><em>Lebih simpel.</em></h1><p>Portal belajar ringan untuk materi jaringan, administrasi sistem, latihan soal, dan tools yang sering dipakai siswa SMK.</p><div class="status"><i class="dot"></i> V1 / ONLINE</div></div>
-<div class="section"><div class="section-head"><div><div class="eyebrow">LATEST / MATERIAL</div><h2>Materi terbaru</h2></div><button class="primary" data-page="materi">Lihat semua</button></div><div class="cards" id="homeCards"></div></div>
-<div class="section"><div class="section-head"><div><div class="eyebrow">QUICK ACCESS</div><h2>Akses cepat</h2></div></div><div class="layout"><div class="panel"><h3>📝 Latihan soal</h3><p>Uji pemahaman TJKT dan ASJ dengan soal pilihan ganda dan skor otomatis.</p><button class="primary" data-page="soal">Mulai latihan →</button></div><div class="panel"><h3>🧮 Subnet Tool</h3><p>Hitung network, broadcast, host, dan subnet mask dari IPv4/CIDR.</p><button class="primary" data-page="tools">Buka tool →</button></div></div></div>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Rizz <span>Learning Hub</span></div>
+
+    <div class="search">
+      <input id="searchInput"
+        type="search"
+        placeholder="🔎 Cari materi..."
+        oninput="searchMaterial()">
+    </div>
+
+    <button class="icon-btn" onclick="toggleDark()" title="Mode gelap">🌙</button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- HOME -->
+<section id="homePage">
+
+  <div class="hero">
+    <h1>📚 Rizz Learning Hub</h1>
+    <p>
+      Pusat belajar TJKT & ASJ. Pelajari jaringan komputer,
+      Cisco, MikroTik, Linux, server, hosting, keamanan jaringan,
+      dan troubleshooting dalam satu tempat.
+    </p>
+
+    <div class="stats">
+      <div class="stat">📚 10 Kategori</div>
+      <div class="stat">📖 70+ Materi</div>
+      <div class="stat">📝 Latihan Soal</div>
+      <div class="stat">📱 Mobile Friendly</div>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <h2>📖 Materi Pembelajaran</h2>
+    <p>Pilih kategori yang ingin kamu pelajari.</p>
+  </div>
+
+  <div class="grid" id="categoryGrid"></div>
+
 </section>
 
-<section id="materi" class="page" style="display:none"><div class="section" style="padding-top:42px"><div class="section-head"><div><div class="eyebrow">SMK / MATERIALS</div><h2>Materi TJKT & ASJ</h2></div><div class="search"><input id="search" placeholder="Search materi…"><button>⌕</button></div></div><div class="cards" id="allCards"></div><div class="panel" id="reader" style="margin-top:20px"><div class="eyebrow">READER</div><h3>Pilih materi</h3><p>Klik kartu materi untuk membuka ringkasan.</p></div></div></section>
 
-<section id="soal" class="page" style="display:none"><div class="section" style="padding-top:42px"><div class="eyebrow">SMK / QUIZ</div><h2>Latihan Soal</h2><div class="panel quiz"><div class="qmeta"><span id="qcat">TJKT</span><span id="qcount">1 / 12</span></div><div class="question" id="question"></div><div class="answers" id="answers"></div><div class="quizbar"><span class="muted" id="feedback"></span><button class="primary" id="next" disabled>Berikutnya →</button></div></div></div></section>
+<!-- MATERIAL PAGE -->
+<section id="materialPage">
 
-<section id="tools" class="page" style="display:none"><div class="section" style="padding-top:42px"><div class="eyebrow">SMK / NETWORK TOOL</div><h2>Subnet Calculator</h2><div class="panel"><div class="toolgrid"><div class="field"><label>IPv4 ADDRESS</label><input id="ip" value="192.168.46.5"></div><div class="field"><label>PREFIX / CIDR</label><input id="prefix" type="number" min="0" max="32" value="24"></div></div><button class="primary" id="calc" style="margin-top:14px">Calculate</button><div class="result" id="result"></div></div></div></section>
+  <button class="back" onclick="goHome()">← Kembali</button>
 
-<section id="about" class="page" style="display:none"><div class="section" style="padding-top:42px"><div class="eyebrow">SMK / ABOUT</div><h2>Tentang</h2><div class="about"><div class="aboutbox"><h3>SMK Learning Hub</h3><p>V1 portal belajar untuk siswa TJKT dan ASJ. Desain mengikuti gaya minimal, gelap, dan fokus seperti halaman archive/dashboard modern.</p></div><div class="aboutbox"><h3>Isi V1</h3><p>Materi, latihan soal, pencarian, dan subnet calculator. Semua berjalan langsung di browser tanpa database.</p></div></div></div></section>
+  <div class="material-header">
+    <h1 id="categoryTitle"></h1>
+    <p id="categoryDescription"></p>
+  </div>
+
+  <div class="material-list" id="materialList"></div>
+
+</section>
+
+
+<!-- DETAIL PAGE -->
+<section id="detailPage">
+
+  <button class="back" onclick="goMaterials()">← Kembali ke materi</button>
+
+  <article class="detail" id="detailContent"></article>
+
+</section>
+
 </main>
-<footer><div class="wrap">SMK / LEARNING HUB — V1 • TJKT / ASJ</div></footer>
-<div class="toast" id="toast"></div>
+
+<footer>
+  <b>Rizz Learning Hub</b><br>
+  Belajar TJKT & ASJ jadi lebih mudah.<br><br>
+  © 2026 By Rizki
+</footer>
+
 
 <script>
-const M=[
-["IP Address & Subnetting","TJKT","🌐","Dasar IPv4, CIDR, subnet mask, network, broadcast dan host.","IP address adalah alamat perangkat dalam jaringan. Prefix /24 berarti 24 bit untuk network. Network adalah alamat pertama dan broadcast alamat terakhir subnet."],
-["MikroTik Dasar","TJKT","📡","IP, DNS, DHCP dan NAT.","Konfigurasi dasar router meliputi interface, IP address, DNS, DHCP bila diperlukan, dan NAT masquerade untuk akses internet."],
-["Cisco & Packet Tracer","TJKT","🖧","Switch, router, VLAN dan konfigurasi dasar.","Cisco digunakan untuk mengelola jaringan. VLAN membagi jaringan secara logis, sedangkan router menghubungkan jaringan berbeda."],
-["Computer Hardware","TJKT","🖥️","CPU, RAM, storage, motherboard, PSU dan NIC.","CPU memproses data, RAM menjadi memori kerja, storage menyimpan data, motherboard menghubungkan komponen, PSU memberi daya dan NIC menyediakan koneksi jaringan."],
-["Control Panel Hosting","ASJ","☁️","cPanel, CyberPanel dan layanan hosting.","Control panel mempermudah pengelolaan website, domain, database, email, file, DNS dan SSL sesuai fitur panel."],
-["VPS vs Shared Hosting","ASJ","🗄️","Perbedaan resource dan kontrol.","Shared hosting berbagi resource. VPS memberikan lingkungan virtual yang lebih terisolasi dan kontrol lebih besar."],
-["Linux Dasar","ASJ","🐧","Perintah terminal dasar.","pwd, ls, cd, mkdir, cp, mv dan rm adalah contoh perintah dasar untuk navigasi serta pengelolaan file."],
-["Keamanan Jaringan","TJKT","🔐","Password, firewall, update, backup dan akses.","Keamanan jaringan membutuhkan kontrol akses, password kuat, firewall, update sistem, backup dan monitoring."]
-];
-const Q=[
-["TJKT","Subnet mask digunakan untuk...","Menentukan network dan host","Mengubah IP jadi domain","Membuat kabel","Mengganti monitor",0],
-["TJKT","/24 sama dengan...","255.255.255.0","255.255.0.0","255.0.0.0","255.255.255.252",0],
-["TJKT","Perangkat yang menghubungkan jaringan berbeda adalah...","Router","RAM","Monitor","Keyboard",0],
-["TJKT","DHCP digunakan untuk...","Memberikan konfigurasi IP otomatis","Membuat kabel","Menghapus DNS","Mematikan server",0],
-["ASJ","cPanel adalah...","Control panel hosting","Bahasa pemrograman","Sistem operasi","Kartu jaringan",0],
-["ASJ","VPS umumnya memiliki...","Kontrol resource lebih besar","Tidak punya IP","Tidak membutuhkan server","Hanya untuk email",0],
-["TJKT","Mode konfigurasi global Cisco menggunakan...","configure terminal","show run","ping","copy",0],
-["TJKT","RAM berfungsi sebagai...","Memori kerja sementara","Penyimpanan permanen","Sumber listrik","Router",0],
-["ASJ","Perintah Linux untuk melihat isi folder...","ls","cd","pwd","mkdir",0],
-["TJKT","Broadcast adalah...","Alamat terakhir subnet","Alamat pertama subnet","Alamat DNS","Alamat gateway saja",0],
-["ASJ","Control panel dapat digunakan untuk mengelola...","Database","CPU fisik","Kabel LAN","Printer kelas",0],
-["TJKT","NAT masquerade berguna untuk...","Menyamarkan IP private saat keluar","Membuat RAM","Menghapus VLAN","Mengganti monitor",0]
-];
-const $=id=>document.getElementById(id);
-function go(id){document.querySelectorAll(".page").forEach(p=>p.style.display="none");$(id).style.display="block";document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));scrollTo({top:0,behavior:"smooth"})}
-document.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>go(b.dataset.page));
-$("mobileBtn").onclick=()=>{let n=document.querySelector("nav");n.style.display=n.style.display==="grid"?"":"grid";n.style.position="absolute";n.style.top="62px";n.style.left="14px";n.style.right="14px";n.style.padding="10px";n.style.background="#0c1017";n.style.border="1px solid #1c2430";n.style.borderRadius="10px";n.style.flexDirection="column"};
 
-function cards(data,target){$(target).innerHTML=data.map((m,i)=>`<article class="card" data-i="${M.indexOf(m)}"><span class="number">${String(i+1).padStart(2,"0")} / ${m[1]}</span><div class="icon">${m[2]}</div><h3>${m[0]}</h3><p>${m[3]}</p></article>`).join("");document.querySelectorAll("#"+target+" .card").forEach(c=>c.onclick=()=>read(+c.dataset.i))}
-function read(i){let m=M[i];go("materi");$("reader").innerHTML=`<div class="eyebrow">${m[1]} / READER</div><h3>${m[2]} ${m[0]}</h3><p>${m[4]}</p>`;$("reader").scrollIntoView({behavior:"smooth"})}
-cards(M.slice(0,3),"homeCards");cards(M,"allCards");
-$("search").oninput=e=>{let q=e.target.value.toLowerCase();cards(M.filter(m=>(m[0]+" "+m[1]+" "+m[3]).toLowerCase().includes(q)),"allCards")};
+/* =========================
+   DATABASE MATERI
+========================= */
 
-let qi=0,score=0,done=false;
-function renderQ(){let q=Q[qi];$("qcat").textContent=q[0];$("qcount").textContent=`${qi+1} / ${Q.length}`;$("question").textContent=q[1];$("feedback").textContent="";$("next").disabled=true;done=false;$("answers").innerHTML=q.slice(2,6).map((x,i)=>`<button class="answer" data-a="${i}">${String.fromCharCode(65+i)}. ${x}</button>`).join("");document.querySelectorAll(".answer").forEach(b=>b.onclick=()=>answer(+b.dataset.a))}
-function answer(a){if(done)return;done=true;let q=Q[qi];document.querySelectorAll(".answer").forEach((b,i)=>{if(i===q[6])b.classList.add("correct");if(i===a&&a!==q[6])b.classList.add("wrong")});if(a===q[6]){score++;$("feedback").textContent="✓ Benar"}else $("feedback").textContent="✕ Belum tepat";$("next").disabled=false}
-$("next").onclick=()=>{if(qi<Q.length-1){qi++;renderQ()}else{toast("Selesai! Skor "+score+"/"+Q.length);qi=0;score=0;renderQ()}};renderQ();
+const data = {
 
-function ipint(s){let p=s.split(".").map(Number);if(p.length!==4||p.some(x=>!Number.isInteger(x)||x<0||x>255))return null;return (((p[0]*256+p[1])*256+p[2])*256+p[3])>>>0}
-function ips(n){return[(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255].join(".")}
-function calc(){let n=ipint($("ip").value.trim()),p=Number($("prefix").value);if(n===null||!Number.isInteger(p)||p<0||p>32){toast("IP/CIDR tidak valid");return}let mask=p===0?0:(0xffffffff<<(32-p))>>>0,net=(n&mask)>>>0,b=(net|(~mask>>>0))>>>0,total=2**(32-p),usable=p>=31?total:Math.max(0,total-2);let r=[["Network",ips(net)],["Subnet Mask",ips(mask)],["Broadcast",ips(b)],["First Host",p>=31?"—":ips(net+1)],["Last Host",p>=31?"—":ips(b-1)],["Total Address",total.toLocaleString("id-ID")],["Usable Host",usable.toLocaleString("id-ID")],["CIDR","/"+p]];$("result").innerHTML=r.map(x=>`<div><small>${x[0]}</small><b>${x[1]}</b></div>`).join("")}
-$("calc").onclick=calc;calc();
-function toast(t){let e=$("toast");e.textContent=t;e.classList.add("show");clearTimeout(window.tt);window.tt=setTimeout(()=>e.classList.remove("show"),2200)}
-</script>
-</body></html>
+jaringan:{
+icon:"🌐",
+title:"Jaringan Dasar",
+description:"Dasar-dasar jaringan komputer yang wajib dipahami siswa TJKT.",
+items:[
+
+{
+title:"Pengertian Jaringan Komputer",
+desc:"Memahami apa itu jaringan komputer.",
+content:`
+<h1>🌐 Pengertian Jaringan Komputer</h1>
+
+<p>
+Jaringan komputer adalah sekumpulan perangkat yang saling terhubung
+agar dapat bertukar data dan berbagi sumber daya.
+</p>
+
+<h2>Fungsi jaringan</h2>
+<ul>
+<li>Berbagi file.</li>
+<li>Berbagi printer.</li>
+<li>Berbagi koneksi internet.</li>
+<li>Memudahkan komunikasi.</li>
+<li>Mengelola sumber daya secara terpusat.</li>
+</ul>
+
+<div class="note">
+<b>💡 Ingat:</b> jaringan komputer = perangkat yang terhubung untuk berkomunikasi dan berbagi sumber daya.
+</div>
+
+<h2>Contoh</h2>
+<p>
+Komputer di laboratorium sekolah yang terhubung ke switch
+dan dapat mengakses server merupakan contoh jaringan komputer.
+</p>
+`
+},
+
+{
+title:"Jenis-Jenis Jaringan",
+desc:"PAN, LAN, MAN, dan WAN.",
+content:`
+<h1>🌍 Jenis-Jenis Jaringan</h1>
+
+<h2>PAN</h2>
+<p>Personal Area Network adalah jaringan dengan jangkauan sangat dekat, misalnya HP terhubung ke headset Bluetooth.</p>
+
+<h2>LAN</h2>
+<p>Local Area Network digunakan dalam area terbatas seperti rumah, sekolah, kantor, atau laboratorium.</p>
+
+<h2>MAN</h2>
+<p>Metropolitan Area Network mencakup area lebih luas seperti sebuah kota.</p>
+
+<h2>WAN</h2>
+<p>Wide Area Network mencakup wilayah yang sangat luas. Internet merupakan contoh jaringan global.</p>
+
+<div class="tip">
+<b>Tips menghafal:</b> PAN → LAN → MAN → WAN = jangkauan semakin luas.
+</div>
+`
+},
+
+{
+title:"Topologi Jaringan",
+desc:"Mengenal bentuk dan cara perangkat jaringan terhubung.",
+content:`
+<h1>🔗 Topologi Jaringan</h1>
+
+<p>Topologi adalah pola atau bentuk hubungan antarperangkat dalam jaringan.</p>
+
+<h2>Jenis topologi</h2>
+<ul>
+<li><b>Bus</b> — perangkat menggunakan satu jalur utama.</li>
+<li><b>Star</b> — perangkat terhubung ke perangkat pusat seperti switch.</li>
+<li><b>Ring</b> — perangkat membentuk lingkaran.</li>
+<li><b>Mesh</b> — perangkat memiliki banyak koneksi antarperangkat.</li>
+<li><b>Tree</b> — struktur bertingkat seperti pohon.</li>
+</ul>
+
+<div class="note">
+Topologi star banyak digunakan pada jaringan LAN modern karena mudah dikelola.
+</div>
+`
+},
+
+{
+title:"Model OSI",
+desc:"Memahami 7 layer OSI.",
+content:`
+<h1>📡 Model OSI</h1>
+
+<p>OSI merupakan model referensi komunikasi jaringan yang terdiri dari 7 layer.</p>
+
+<ol>
+<li><b>Physical</b> — kabel, sinyal, konektor.</li>
+<li><b>Data Link</b> — frame dan MAC Address.</li>
+<li><b>Network</b> — IP Address dan routing.</li>
+<li><b>Transport</b> — TCP dan UDP.</li>
+<li><b>Session</b> — mengatur sesi komunikasi.</li>
+<li><b>Presentation</b> — format dan enkripsi data.</li>
+<li><b>Application</b> — layanan jaringan untuk aplikasi.</li>
+</ol>
+
+<div class="tip">
+Urutan bawah ke atas: Physical → Data Link → Network → Transport → Session → Presentation → Application.
+</div>
+`
+},
+
+{
+title:"Model TCP/IP",
+desc:"Model jaringan yang digunakan pada internet.",
+content:`
+<h1>🌐 Model TCP/IP</h1>
+
+<p>TCP/IP adalah kumpulan protokol yang menjadi dasar komunikasi di internet.</p>
+
+<ol>
+<li>Network Access</li>
+<li>Internet</li>
+<li>Transport</li>
+<li>Application</li>
+</ol>
+
+<h2>Contoh protokol</h2>
+<ul>
+<li>HTTP/HTTPS</li>
+<li>DNS</li>
+<li>DHCP</li>
+<li>TCP</li>
+<li>UDP</li>
+<li>IP</li>
+</ul>
+`
+},
+
+{
+title:"IP Address",
+desc:"Memahami alamat perangkat dalam jaringan.",
+content:`
+<h1>📍 IP Address</h1>
+
+<p>
+IP Address adalah alamat logis yang digunakan untuk mengidentifikasi
+perangkat dalam jaringan.
+</p>
+
+<h2>Contoh IPv4</h2>
+<pre>192.168.1.10</pre>
+
+<h2>IPv4</h2>
+<p>IPv4 menggunakan 32 bit dan biasanya ditulis dalam empat bagian desimal.</p>
+
+<h2>IPv6</h2>
+<p>IPv6 menggunakan 128 bit dan dibuat untuk menyediakan ruang alamat yang jauh lebih besar.</p>
+
+<div class="note">
+<b>Contoh:</b> PC = 192.168.1.10<br>
+Router = 192.168.1.1
+</div>
+`
+},
+
+{
+title:"Subnetting",
+desc:"Membagi jaringan menjadi beberapa subnet.",
+content:`
+<h1>🧮 Subnetting</h1>
+
+<p>
+Subnetting adalah teknik membagi satu jaringan menjadi beberapa jaringan yang lebih kecil.
+</p>
+
+<h2>Contoh</h2>
+<pre>
+Network : 192.168.1.0/24
+Mask    : 255.255.255.0
+</pre>
+
+<p>
+Prefix <b>/24</b> berarti 24 bit digunakan sebagai network portion.
+</p>
+
+<h2>Tujuan subnetting</h2>
+<ul>
+<li>Menghemat alamat IP.</li>
+<li>Membagi jaringan.</li>
+<li>Mengurangi broadcast.</li>
+<li>Mempermudah pengelolaan jaringan.</li>
+</ul>
+
+<div class="tip">
+Gunakan Subnet Calculator di bagian Tools untuk membantu menghitung subnet.
+</div>
+`
+},
+
+{
+title:"DHCP",
+desc:"Memberikan IP secara otomatis kepada client.",
+content:`
+<h1>⚙️ DHCP</h1>
+
+<p>
+DHCP atau Dynamic Host Configuration Protocol memberikan konfigurasi jaringan
+secara otomatis kepada client.
+</p>
+
+<h2>DHCP dapat memberikan</h2>
+<ul>
+<li>IP Address</li>
+<li>Subnet Mask</li>
+<li>Default Gateway</li>
+<li>DNS Server</li>
+</ul>
+
+<h2>Proses DHCP</h2>
+<ol>
+<li>Discover</li>
+<li>Offer</li>
+<li>Request</li>
+<li>Acknowledge</li>
+</ol>
+
+<div class="note">
+DORA = Discover → Offer → Request → Acknowledge.
+</div>
+`
+},
+
+{
+title:"DNS",
+desc:"Mengubah nama domain menjadi alamat IP.",
+content:`
+<h1>🔎 DNS</h1>
+
+<p>
+DNS atau Domain Name System menerjemahkan nama domain menjadi IP Address.
+</p>
+
+<p>
+Contohnya, pengguna mengetik nama sebuah website,
+kemudian DNS membantu menemukan alamat IP server website tersebut.
+</p>
+
+<div class="tip">
+<b>Ingat:</b> DNS seperti buku kontak internet — nama domain dipetakan ke alamat IP.
+</div>
+`
+},
+
+{
+title:"TCP vs UDP",
+desc:"Perbedaan dua protokol transport.",
+content:`
+<h1>📦 TCP vs UDP</h1>
+
+<h2>TCP</h2>
+<ul>
+<li>Connection-oriented.</li>
+<li>Memastikan data diterima.</li>
+<li>Lebih dapat diandalkan.</li>
+<li>Contoh penggunaan: web dan transfer file.</li>
+</ul>
+
+<h2>UDP</h2>
+<ul>
+<li>Connectionless.</li>
+<li>Tidak menjamin pengiriman.</li>
+<li>Lebih sederhana dan cepat.</li>
+<li>Cocok untuk aplikasi yang membutuhkan latensi rendah.</li>
+</ul>
+
+<div class="note">
+TCP = lebih mengutamakan keandalan.<br>
+UDP = lebih mengutamakan kesederhanaan dan kecepatan.
+</div>
+`
+}
+
+]},
+
+
+perangkat:{
+icon:"🔌",
+title:"Perangkat Jaringan",
+description:"Kenali perangkat yang digunakan untuk membangun jaringan.",
+items:[
+
+{
+title:"Switch",
+desc:"Perangkat yang menghubungkan banyak perangkat dalam LAN.",
+content:`
+<h1>🔀 Switch</h1>
+<p>
+Switch menghubungkan beberapa perangkat dalam jaringan lokal dan
+meneruskan frame berdasarkan MAC Address.
+</p>
+
+<h2>Fungsi</h2>
+<ul>
+<li>Menghubungkan PC.</li>
+<li>Menghubungkan server.</li>
+<li>Mendukung VLAN pada switch yang sesuai.</li>
+<li>Meneruskan frame ke port tujuan.</li>
+</ul>
+`
+},
+
+{
+title:"Router",
+desc:"Menghubungkan jaringan yang berbeda.",
+content:`
+<h1>🌐 Router</h1>
+<p>
+Router menghubungkan jaringan yang berbeda dan menentukan jalur
+untuk meneruskan paket.
+</p>
+
+<h2>Contoh</h2>
+<pre>
+LAN 1 → Router → LAN 2
+</pre>
+
+<p>
+Router dapat digunakan untuk routing, NAT, DHCP, dan berbagai fungsi jaringan lainnya.
+</p>
+`
+},
+
+{
+title:"Access Point",
+desc:"Menghubungkan perangkat wireless ke jaringan.",
+content:`
+<h1>📶 Access Point</h1>
+<p>
+Access Point menyediakan koneksi wireless sehingga perangkat seperti
+laptop dan smartphone dapat terhubung ke jaringan.
+</p>
+
+<h2>Contoh</h2>
+<p>Wi-Fi sekolah yang menghubungkan laptop siswa ke jaringan sekolah menggunakan access point.</p>
+`
+},
+
+{
+title:"Hub",
+desc:"Perangkat jaringan sederhana yang meneruskan data ke semua port.",
+content:`
+<h1>🔌 Hub</h1>
+<p>
+Hub bekerja pada Physical Layer dan meneruskan sinyal/data ke semua port.
+</p>
+
+<div class="warning">
+Hub berbeda dengan switch. Switch dapat memilih port tujuan berdasarkan MAC Address,
+sedangkan hub melakukan broadcast ke semua port.
+</div>
+`
+},
+
+{
+title:"Kabel UTP",
+desc:"Kabel twisted pair untuk jaringan Ethernet.",
+content:`
+<h1>🧵 Kabel UTP</h1>
+<p>
+UTP atau Unshielded Twisted Pair merupakan kabel yang banyak digunakan
+untuk jaringan Ethernet.
+</p>
+
+<h2>Jenis kabel berdasarkan penggunaan</h2>
+<ul>
+<li>Straight-through</li>
+<li>Crossover</li>
+</ul>
+
+<h2>Konektor</h2>
+<p>Umumnya menggunakan konektor RJ45.</p>
+`
+},
+
+{
+title:"Fiber Optic",
+desc:"Media transmisi menggunakan cahaya.",
+content:`
+<h1>💡 Fiber Optic</h1>
+
+<p>
+Fiber optic mengirimkan data menggunakan cahaya melalui serat optik.
+</p>
+
+<h2>Kelebihan</h2>
+<ul>
+<li>Bandwidth tinggi.</li>
+<li>Jarak transmisi jauh.</li>
+<li>Tidak mudah terkena interferensi elektromagnetik.</li>
+</ul>
+`
+}
+
+]},
+
+
+cisco:{
+icon:"🖧",
+title:"Cisco",
+description:"Materi konfigurasi dasar perangkat Cisco.",
+items:[
+
+{
+title:"Mode CLI Cisco",
+desc:"Mengenal mode perintah Cisco IOS.",
+content:`
+<h1>🖥️ Mode CLI Cisco</h1>
+
+<pre>
+Switch&gt;
+Switch&gt; enable
+Switch#
+Switch# configure terminal
+Switch(config)#
+</pre>
+
+<h2>Mode penting</h2>
+<ul>
+<li>User EXEC: <code>Switch&gt;</code></li>
+<li>Privileged EXEC: <code>Switch#</code></li>
+<li>Global Configuration: <code>Switch(config)#</code></li>
+<li>Interface Configuration: <code>Switch(config-if)#</code></li>
+</ul>
+`
+},
+
+{
+title:"Hostname Cisco",
+desc:"Mengubah nama perangkat Cisco.",
+content:`
+<h1>🏷️ Hostname Cisco</h1>
+
+<pre>
+enable
+configure terminal
+hostname SW-01
+end
+</pre>
+
+<p>Hostname membantu membedakan perangkat ketika mengelola banyak switch atau router.</p>
+`
+},
+
+{
+title:"Password Cisco",
+desc:"Mengamankan akses perangkat.",
+content:`
+<h1>🔐 Password Cisco</h1>
+
+<pre>
+enable
+configure terminal
+enable secret cisco
+
+line console 0
+password cisco
+login
+exit
+</pre>
+
+<div class="warning">
+Untuk jaringan nyata, gunakan password yang kuat dan jangan menggunakan password contoh seperti di atas.
+</div>
+`
+},
+
+{
+title:"VLAN",
+desc:"Membagi jaringan switch secara logis.",
+content:`
+<h1>🏷️ VLAN</h1>
+
+<p>
+VLAN memungkinkan satu switch membagi jaringan secara logis menjadi beberapa broadcast domain.
+</p>
+
+<pre>
+enable
+configure terminal
+
+vlan 10
+name SISWA
+
+interface fa0/1
+switchport mode access
+switchport access vlan 10
+</pre>
+
+<div class="note">
+Port access biasanya digunakan untuk menghubungkan perangkat akhir seperti PC.
+</div>
+`
+},
+
+{
+title:"Trunk",
+desc:"Membawa beberapa VLAN melalui satu link.",
+content:`
+<h1>🚦 Trunk</h1>
+
+<p>
+Trunk digunakan untuk membawa lalu lintas dari beberapa VLAN melalui satu koneksi,
+misalnya antar-switch.
+</p>
+
+<pre>
+interface fa0/24
+switchport mode trunk
+</pre>
+`
+},
+
+{
+title:"Static Routing",
+desc:"Menentukan rute secara manual.",
+content:`
+<h1>🛣️ Static Routing</h1>
+
+<pre>
+ip route 192.168.2.0 255.255.255.0 192.168.1.2
+</pre>
+
+<p>
+Perintah tersebut membuat rute menuju network 192.168.2.0 melalui next-hop 192.168.1.2.
+</p>
+`
+},
+
+{
+title:"Menyimpan Konfigurasi",
+desc:"Menyimpan konfigurasi Cisco.",
+content:`
+<h1>💾 Save Configuration</h1>
+
+<pre>
+copy running-config startup-config
+</pre>
+
+<p>
+Atau pada perangkat tertentu:
+</p>
+
+<pre>
+write memory
+</pre>
+
+<div class="tip">
+Simpan konfigurasi setelah melakukan perubahan penting agar konfigurasi tidak hilang setelah restart.
+</div>
+`
+}
+
+]},
+
+
+mikrotik:{
+icon:"📡",
+title:"MikroTik",
+description:"Konfigurasi dasar RouterOS dan jaringan.",
+items:[
+
+{
+title:"Pengenalan MikroTik",
+desc:"Mengenal RouterOS dan Winbox.",
+content:`
+<h1>📡 MikroTik</h1>
+<p>
+MikroTik adalah perangkat dan sistem operasi jaringan yang banyak digunakan
+untuk routing, firewall, NAT, hotspot, dan manajemen bandwidth.
+</p>
+
+<h2>Alat konfigurasi</h2>
+<ul>
+<li>Winbox</li>
+<li>WebFig</li>
+<li>Terminal</li>
+<li>SSH</li>
+</ul>
+`
+},
+
+{
+title:"IP Address MikroTik",
+desc:"Menambahkan alamat IP pada interface.",
+content:`
+<h1>📍 IP Address MikroTik</h1>
+
+<pre>
+/ip address add address=192.168.1.1/24 interface=ether1
+</pre>
+
+<p>
+IP digunakan sebagai alamat interface pada jaringan tertentu.
+</p>
+`
+},
+
+{
+title:"DHCP Server MikroTik",
+desc:"Memberikan IP otomatis ke client.",
+content:`
+<h1>⚙️ DHCP Server</h1>
+
+<p>
+DHCP Server memberikan konfigurasi IP secara otomat
