@@ -1,1429 +1,181 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#07090d">
-<title>SMK / LEARNING HUB</title>
-
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07090d"><title>SMK / LEARNING HUB</title>
 <style>
-:root{
-  --bg:#07090d;
-  --panel:#0c1017;
-  --panel2:#101722;
-  --line:#1c2430;
-  --text:#f3f5f7;
-  --muted:#77808e;
-  --green:#31e58c;
-  --blue:#4da3ff;
-  --red:#ff5b68;
-  --yellow:#ffd166
-}
-
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
-  font-size:14px
-}
-
-button,input{font:inherit}
-button{cursor:pointer}
-
-.wrap{
-  max-width:1180px;
-  margin:auto;
-  padding:0 18px
-}
-
-header{
-  height:76px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  position:sticky;
-  top:0;
-  background:rgba(7,9,13,.93);
-  backdrop-filter:blur(15px);
-  z-index:50
-}
-
-.head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px
-}
-
-.logo{
-  font-weight:900;
-  letter-spacing:-.03em;
-  font-size:20px;
-  user-select:none
-}
-
-.logo-smk{
-  cursor:pointer;
-}
-
-.logo span{color:var(--green)}
-
-nav{
-  display:flex;
-  gap:6px
-}
-
-nav button{
-  background:none;
-  color:#9ba4b1;
-  border:1px solid transparent;
-  padding:9px 12px;
-  border-radius:8px;
-  transition:.2s ease
-}
-
-nav button:hover,
-nav button.active{
-  color:#fff;
-  background:#101722;
-  border-color:#202a38
-}
-
-nav button:active{
-  transform:scale(.96)
-}
-
-.lang{
-  color:#929aa7;
-  font-size:12px;
-  margin-left:auto
-}
-
-.mobile{
-  display:none
-}
-
-.hero{
-  padding:70px 0 58px;
-  border-bottom:1px solid var(--line)
-}
-
-.eyebrow{
-  color:#687383;
-  font-size:11px;
-  letter-spacing:.14em;
-  font-weight:800
-}
-
-.hero h1{
-  font-size:clamp(42px,8vw,82px);
-  letter-spacing:-.07em;
-  line-height:.92;
-  margin:14px 0 18px
-}
-
-.hero h1 em{
-  font-style:normal;
-  color:#8f98a6
-}
-
-.hero p{
-  max-width:620px;
-  color:#8993a1;
-  line-height:1.7;
-  margin:0
-}
-
-.hero .status{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  margin-top:25px;
-  color:#8e99a8;
-  font-size:12px
-}
-
-.dot{
-  width:7px;
-  height:7px;
-  background:var(--green);
-  border-radius:50%;
-  box-shadow:0 0 12px var(--green)
-}
-
-.section{
-  padding:38px 0;
-  border-bottom:1px solid var(--line)
-}
-
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  margin-bottom:20px;
-  gap:15px
-}
-
-.section h2{
-  font-size:24px;
-  letter-spacing:-.03em;
-  margin:6px 0
-}
-
-.search{
-  width:min(460px,100%);
-  display:flex;
-  background:#0c1119;
-  border:1px solid var(--line);
-  border-radius:9px;
-  overflow:hidden
-}
-
-.search input{
-  flex:1;
-  background:none;
-  border:0;
-  outline:0;
-  color:#fff;
-  padding:12px
-}
-
-.search button{
-  background:#121a25;
-  color:#dbe2eb;
-  padding:0 15px;
-  border:0;
-  border-left:1px solid var(--line)
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
-  border-left:1px solid var(--line)
-}
-
-.card{
-  padding:20px;
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  min-height:155px;
-  background:linear-gradient(135deg,#0a0e14,#0c1118);
-  cursor:pointer;
-  transition:.22s ease
-}
-
-.card:hover{
-  background:#0f151e;
-  transform:translateY(-4px);
-  box-shadow:0 10px 28px rgba(0,0,0,.25)
-}
-
-.card:active{
-  transform:translateY(-1px) scale(.985)
-}
-
-.number{
-  font-size:11px;
-  color:#4f5b6b
-}
-
-.card .icon{
-  font-size:25px;
-  margin:17px 0 10px;
-  transition:.25s ease
-}
-
-.card:hover .icon{
-  transform:translateY(-2px) scale(1.08)
-}
-
-.card h3{
-  font-size:16px;
-  margin:0 0 7px
-}
-
-.card p{
-  color:#6f7987;
-  font-size:12px;
-  line-height:1.5;
-  margin:0
-}
-
-.layout{
-  display:grid;
-  grid-template-columns:1.3fr .7fr;
-  gap:22px
-}
-
-.panel{
-  border:1px solid var(--line);
-  background:#0b1017;
-  padding:20px;
-  border-radius:10px
-}
-
-.panel h3{
-  margin:0 0 5px
-}
-
-.panel p{
-  color:#788291;
-  line-height:1.65
-}
-
-.primary{
-  background:var(--green);
-  color:#04130b;
-  border:0;
-  border-radius:7px;
-  padding:10px 14px;
-  font-weight:850;
-  transition:.18s ease
-}
-
-.primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 7px 20px rgba(49,229,140,.15);
-  filter:brightness(1.04)
-}
-
-.primary:active{
-  transform:scale(.97)
-}
-
-.secondary{
-  background:#111823;
-  color:#dce3eb;
-  border:1px solid #202a38;
-  border-radius:7px;
-  padding:10px 14px;
-  transition:.18s ease
-}
-
-.secondary:hover{
-  background:#151e2b
-}
-
-.muted{
-  color:#687382
-}
-
-/* PAGE */
-
-.page.entering{
-  animation:pageEnter .38s cubic-bezier(.22,.8,.25,1) both
-}
-
-@keyframes pageEnter{
-  0%{
-    opacity:0;
-    transform:translateY(15px);
-    filter:blur(2px)
-  }
-  100%{
-    opacity:1;
-    transform:none;
-    filter:blur(0)
-  }
-}
-
-/* MATERIAL */
-
-.material-page{
-  display:none
-}
-
-.material-page.active{
-  display:block;
-  animation:pageEnter .38s cubic-bezier(.22,.8,.25,1) both
-}
-
-.material-content{
-  max-width:850px
-}
-
-.material-content h2{
-  font-size:30px;
-  letter-spacing:-.04em;
-  margin:8px 0 18px
-}
-
-.material-icon{
-  font-size:42px;
-  margin-bottom:12px;
-  animation:iconEnter .45s ease both
-}
-
-@keyframes iconEnter{
-  0%{
-    opacity:0;
-    transform:scale(.8) translateY(8px)
-  }
-  100%{
-    opacity:1;
-    transform:scale(1) translateY(0)
-  }
-}
-
-.material-content p{
-  color:#8993a1;
-  line-height:1.8
-}
-
-.material-content h3{
-  margin-top:28px;
-  margin-bottom:8px
-}
-
-.back-material{
-  margin-bottom:20px
-}
-
-/* QUIZ */
-
-.quiz{
-  max-width:800px
-}
-
-.quiz-modes{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:15px 0
-}
-
-.mode{
-  background:#0d131c;
-  border:1px solid #202a38;
-  color:#9ca6b4;
-  padding:9px 12px;
-  border-radius:7px
-}
-
-.mode.active{
-  color:#fff;
-  border-color:var(--green);
-  background:#0d2119
-}
-
-.mode.locked{
-  opacity:.45
-}
-
-.qmeta{
-  display:flex;
-  justify-content:space-between;
-  color:#687382;
-  font-size:11px;
-  margin-bottom:16px
-}
-
-.question{
-  font-size:20px;
-  line-height:1.4;
-  margin-bottom:18px
-}
-
-.answers{
-  display:grid;
-  gap:8px
-}
-
-.answer{
-  background:#0d131c;
-  color:#dce3eb;
-  border:1px solid #202a38;
-  border-radius:8px;
-  padding:13px;
-  text-align:left;
-  transition:.18s ease
-}
-
-.answer:hover{
-  border-color:#3b4a60;
-  transform:translateX(3px)
-}
-
-.answer.correct{
-  border-color:#218a58;
-  background:#0d2119
-}
-
-.answer.wrong{
-  border-color:#9d3843;
-  background:#241015
-}
-
-.quizbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:17px;
-  gap:12px
-}
-
-/* PROFILE */
-
-.rank-icon{
-  width:82px;
-  height:82px;
-  border-radius:18px;
-  display:grid;
-  place-items:center;
-  font-size:38px;
-  background:#101722;
-  border:1px solid #263242;
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
-  user-select:none
-}
-
-.profile-main{
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:20px;
-  align-items:center
-}
-
-.profile-rank{
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:-.03em
-}
-
-.profile-xp{
-  color:#77808e;
-  margin-top:5px;
-  font-size:13px
-}
-
-.progress{
-  height:8px;
-  background:#151b24;
-  border-radius:99px;
-  overflow:hidden;
-  margin-top:13px
-}
-
-.progress div{
-  height:100%;
-  width:0;
-  background:var(--green);
-  transition:width .4s ease
-}
-
-.profile-stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-top:18px
-}
-
-.stat{
-  background:#080d13;
-  border:1px solid var(--line);
-  padding:14px;
-  border-radius:8px
-}
-
-.stat b{
-  display:block;
-  font-size:18px
-}
-
-.stat small{
-  color:#687382
-}
-
-/* OWNER MODAL */
-
-.owner-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.72);
-  backdrop-filter:blur(7px);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:100
-}
-
-.owner-overlay.show{
-  display:flex;
-  animation:fadeIn .2s ease
-}
-
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-.owner-box{
-  width:min(390px,100%);
-  background:#0c1017;
-  border:1px solid #273344;
-  border-radius:12px;
-  padding:22px;
-  box-shadow:0 25px 80px rgba(0,0,0,.55)
-}
-
-.owner-box h3{
-  margin:0 0 7px
-}
-
-.owner-box p{
-  color:#77808e;
-  font-size:12px;
-  line-height:1.5
-}
-
-.owner-box input{
-  width:100%;
-  background:#070b10;
-  color:#fff;
-  border:1px solid #273344;
-  padding:12px;
-  border-radius:7px;
-  outline:none;
-  margin-top:10px
-}
-
-.owner-actions{
-  display:flex;
-  gap:8px;
-  margin-top:12px
-}
-
-.owner-actions button{
-  flex:1
-}
-
-/* OWNER PANEL */
-
-.owner-panel{
-  display:none;
-  margin-top:15px;
-  border:1px solid #4b3b12;
-  background:#171208;
-  padding:16px;
-  border-radius:9px
-}
-
-.owner-panel.show{
-  display:block
-}
-
-.owner-panel p{
-  margin:7px 0;
-  color:#9a8b68
-}
-
-.owner-panel input{
-  width:100%;
-  background:#080b10;
-  color:#fff;
-  border:1px solid #2b3440;
-  padding:10px;
-  border-radius:7px;
-  outline:0;
-  margin-top:8px
-}
-
-.owner-tools{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:10px
-}
-
-/* TOOL */
-
-.toolgrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px
-}
-
-.field label{
-  display:block;
-  color:#8993a1;
-  font-size:11px;
-  margin-bottom:6px
-}
-
-.field input{
-  width:100%;
-  background:#070b10;
-  color:#fff;
-  border:1px solid #232e3c;
-  border-radius:7px;
-  padding:11px;
-  outline:none
-}
-
-.field input:focus{
-  border-color:#31506a;
-  box-shadow:0 0 0 3px rgba(77,163,255,.06)
-}
-
-.result{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-top:14px
-}
-
-.result div{
-  border:1px solid var(--line);
-  background:#080d13;
-  padding:11px;
-  border-radius:7px
-}
-
-.result small{
-  display:block;
-  color:#687382;
-  font-size:10px;
-  margin-bottom:4px
-}
-
-.result b{
-  display:block
-}
-
-/* ABOUT */
-
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px
-}
-
-.aboutbox{
-  border:1px solid var(--line);
-  padding:22px;
-  background:#0b1017
-}
-
-.aboutbox p{
-  color:#788291;
-  line-height:1.7
-}
-
-/* TOAST */
-
-.toast{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  background:#eaf2f8;
-  color:#071016;
-  padding:11px 14px;
-  border-radius:8px;
-  opacity:0;
-  transform:translateY(10px);
-  transition:.25s ease;
-  z-index:120;
-  pointer-events:none
-}
-
-.toast.show{
-  opacity:1;
-  transform:none
-}
-
-footer{
-  padding:35px 0;
-  color:#505b69;
-  font-size:11px
-}
-
-/* MOBILE */
-
-@media(max-width:720px){
-
-  .wrap{
-    padding:0 14px
-  }
-
-  header{
-    height:62px
-  }
-
-  .head{
-    width:100%
-  }
-
-  nav{
-    display:none
-  }
-
-  .mobile{
-    display:block;
-    background:#111823;
-    color:#fff;
-    border:1px solid #202a38;
-    border-radius:7px;
-    padding:8px 10px
-  }
-
-  .lang{
-    display:none
-  }
-
-  .hero{
-    padding:48px 0 40px
-  }
-
-  .hero h1{
-    font-size:52px
-  }
-
-  .cards{
-    grid-template-columns:1fr
-  }
-
-  .card{
-    min-height:130px
-  }
-
-  .layout,
-  .about{
-    grid-template-columns:1fr
-  }
-
-  .section{
-    padding:30px 0
-  }
-
-  .section-head{
-    align-items:start;
-    flex-direction:column
-  }
-
-  .toolgrid{
-    grid-template-columns:1fr
-  }
-
-  .search{
-    width:100%
-  }
-
-  .aboutbox{
-    padding:18px
-  }
-
-  .profile-main{
-    grid-template-columns:1fr;
-    text-align:center
-  }
-
-  .rank-icon{
-    margin:auto
-  }
-
-  .profile-stats{
-    grid-template-columns:1fr 1fr
-  }
-
-  .result{
-    grid-template-columns:1fr
-  }
-
-}
+:root{--bg:#07090d;--p:#0c1017;--p2:#101722;--l:#1c2430;--t:#f3f5f7;--m:#77808e;--g:#31e58c;--b:#4da3ff;--r:#ff5b68}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:14px system-ui,sans-serif}button,input{font:inherit}button{cursor:pointer}.wrap{max-width:1100px;margin:auto;padding:0 15px}
+header{height:64px;border-bottom:1px solid var(--l);position:sticky;top:0;background:#07090deb;backdrop-filter:blur(12px);z-index:20}.head{height:100%;display:flex;align-items:center;justify-content:space-between;gap:15px}.logo{font-size:19px;font-weight:900}.logo span{color:var(--g);cursor:pointer}nav{display:flex;gap:5px}nav button,.mobile,.mode,.secondary{background:#101722;color:#aeb7c3;border:1px solid #202a38;border-radius:7px;padding:9px 11px}nav button.active{color:#fff}.mobile{display:none}
+.hero{padding:60px 0 45px;border-bottom:1px solid var(--l)}.ey{font-size:11px;color:#687382;letter-spacing:.13em;font-weight:800}.hero h1{font-size:clamp(45px,8vw,78px);line-height:.9;letter-spacing:-.07em;margin:14px 0}.hero em{font-style:normal;color:#8f98a6}.hero p,.panel p,.card p,.material p{color:#7d8795;line-height:1.7}.status{margin-top:22px;color:#8993a1;font-size:12px}.dot{display:inline-block;width:7px;height:7px;background:var(--g);border-radius:50%;margin-right:7px}
+.section{padding:35px 0;border-bottom:1px solid var(--l)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}h2{margin:5px 0;font-size:24px}.cards{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--l)}.card{padding:18px;border-right:1px solid var(--l);border-bottom:1px solid var(--l);min-height:145px;background:#0b1017;transition:.2s}.card:hover{background:#101722;transform:translateY(-2px)}.card .icon{font-size:25px;margin:13px 0 8px}.card h3{margin:0 0 5px}.card p{font-size:12px;margin:0}.layout,.about{display:grid;grid-template-columns:1fr 1fr;gap:15px}.panel{background:#0b1017;border:1px solid var(--l);padding:18px;border-radius:9px}.primary{background:var(--g);color:#04130b;border:0;border-radius:7px;padding:10px 14px;font-weight:800}.page,.material-page{display:none}.page.on,.material-page.on{display:block}.search{display:flex;border:1px solid var(--l);border-radius:8px;overflow:hidden;background:#0c1119}.search input{width:100%;background:none;border:0;outline:0;color:#fff;padding:11px}.search button{border:0;border-left:1px solid var(--l);background:#111823;color:#fff;padding:0 13px}.material{max-width:800px}.material h2{font-size:30px}.back{margin-bottom:15px}
+.modes{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.mode.active{border-color:var(--g);color:#fff;background:#0d2119}.mode.locked{opacity:.4}.qmeta{display:flex;justify-content:space-between;color:#687382;font-size:11px;margin-bottom:15px}.question{font-size:20px;margin-bottom:15px}.answers{display:grid;gap:8px}.answer{text-align:left;background:#0d131c;color:#dce3eb;border:1px solid #202a38;border-radius:8px;padding:13px}.answer.correct{background:#0d2119;border-color:#218a58}.answer.wrong{background:#241015;border-color:#9d3843}.quizbar{display:flex;justify-content:space-between;align-items:center;margin-top:15px;gap:10px}.muted{color:#687382}
+.profile{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}.rank{width:78px;height:78px;display:grid;place-items:center;background:#101722;border:1px solid #263242;border-radius:17px;font-size:35px}.xp{color:#77808e}.progress{height:8px;background:#151b24;border-radius:9px;overflow:hidden;margin-top:12px}.progress i{display:block;height:100%;width:0;background:var(--g);transition:.3s}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}.stat{background:#080d13;border:1px solid var(--l);padding:13px;border-radius:7px}.stat b{display:block;font-size:18px}.stat small{color:#687382}.owner{display:none;margin-top:15px;padding:15px;background:#171208;border:1px solid #4b3b12;border-radius:8px}.owner.on{display:block}.owner input,.field input{width:100%;background:#070b10;color:#fff;border:1px solid #273344;padding:11px;border-radius:7px;outline:0}.owner-tools{display:flex;gap:7px;margin-top:9px}.fields,.result{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field label{display:block;color:#8993a1;font-size:11px;margin-bottom:5px}.result{margin-top:13px}.result div{background:#080d13;border:1px solid var(--l);padding:10px;border-radius:7px}.result small{display:block;color:#687382}.aboutbox{background:#0b1017;border:1px solid var(--l);padding:20px}
+.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:50;align-items:center;justify-content:center;padding:20px}.overlay.on{display:flex}.box{width:min(390px,100%);background:#0c1017;border:1px solid #273344;border-radius:10px;padding:20px}.box input{width:100%;margin:10px 0;background:#070b10;color:#fff;border:1px solid #273344;padding:11px;border-radius:7px}.actions{display:flex;gap:7px}.actions>*{flex:1}.toast{position:fixed;right:15px;bottom:15px;background:#eef5fa;color:#071016;padding:11px 14px;border-radius:8px;opacity:0;transform:translateY(10px);transition:.2s;z-index:80}.toast.on{opacity:1;transform:none}footer{padding:32px 0;color:#505b69;font-size:11px}
+@media(max-width:720px){nav{display:none;position:absolute;top:64px;left:10px;right:10px;padding:8px;background:#0c1017;border:1px solid var(--l);border-radius:9px;flex-direction:column}nav.open{display:flex}.mobile{display:block}.cards,.layout,.about{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.search{width:100%}.profile{grid-template-columns:1fr;text-align:center}.rank{margin:auto}.stats{grid-template-columns:1fr 1fr}.fields,.result{grid-template-columns:1fr}.hero{padding:48px 0 38px}}
 </style>
 </head>
-
 <body>
 
-<header>
-<div class="wrap head">
-
-<div class="logo" id="logo">
-<span class="logo-smk" id="smkTrigger">SMK</span>
-<span>/</span> LEARNING HUB
-</div>
-
+<header><div class="wrap head">
+<div class="logo"><span id="smk">SMK</span> / LEARNING HUB</div>
 <nav id="nav">
-
-<button class="active" data-page="home" type="button">Home</button>
-<button data-page="materi" type="button">Materi</button>
-<button data-page="soal" type="button">Latihan</button>
-<button data-page="tools" type="button">Tools</button>
-<button data-page="profil" type="button">Profil</button>
-<button data-page="about" type="button">Tentang</button>
-
-</nav>
-
-<div class="lang">ID</div>
-
-<button class="mobile" id="mobileBtn" type="button">☰</button>
-
-</div>
-</header>
-
+<button class="active" data-page="home">Home</button><button data-page="materi">Materi</button>
+<button data-page="soal">Latihan</button><button data-page="tools">Tools</button><button data-page="profil">Profil</button><button data-page="about">Tentang</button>
+</nav><button class="mobile" id="menu">☰</button>
+</div></header>
 
 <main class="wrap">
 
-<!-- HOME -->
-
-<section id="home" class="page">
-
-<div class="hero">
-
-<div class="eyebrow">SMK / TJKT / ASJ</div>
-
-<h1>Belajar.<br><em>Lebih simpel.</em></h1>
-
-<p>
-Portal belajar ringan untuk materi jaringan, administrasi sistem,
-latihan soal, dan tools yang sering dipakai siswa SMK.
-</p>
-
-<div class="status">
-<i class="dot"></i> V1 / ONLINE
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="section-head">
-
-<div>
-<div class="eyebrow">LATEST / MATERIAL</div>
-<h2>Materi terbaru</h2>
-</div>
-
-<button class="primary" data-page="materi" type="button">
-Lihat semua
-</button>
-
-</div>
-
-<div class="cards" id="homeCards"></div>
-
-</div>
-
-
-<div class="section">
-
-<div class="section-head">
-
-<div>
-<div class="eyebrow">QUICK ACCESS</div>
-<h2>Akses cepat</h2>
-</div>
-
-</div>
-
-<div class="layout">
-
-<div class="panel">
-
-<h3>📝 Latihan soal</h3>
-
-<p>
-Uji pemahaman TJKT dan ASJ dengan beberapa tingkat
-kesulitan dan sistem XP.
-</p>
-
-<button class="primary" data-page="soal" type="button">
-Mulai latihan →
-</button>
-
-</div>
-
-
-<div class="panel">
-
-<h3>🧮 Subnet Tool</h3>
-
-<p>
-Hitung network, broadcast, host, dan subnet mask dari IPv4/CIDR.
-</p>
-
-<button class="primary" data-page="tools" type="button">
-Buka tool →
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="section-head">
-
-<div>
-<div class="eyebrow">YOUR PROGRESS</div>
-<h2>Progress belajar</h2>
-</div>
-
-<button class="secondary" data-page="profil" type="button">
-Lihat progress
-</button>
-
-</div>
-
-<div class="panel">
-
-<div class="profile-main">
-
-<div class="rank-icon" id="homeRankIcon">🌱</div>
-
-<div>
-
-<div class="profile-rank" id="homeRank">
-Beginner
-</div>
-
-<div class="profile-xp" id="homeXP">
-0 XP
-</div>
-
-<div class="progress">
-<div id="homeProgress"></div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<section id="home" class="page on">
+<div class="hero"><div class="ey">SMK / TJKT / ASJ</div><h1>Belajar.<br><em>Lebih simpel.</em></h1><p>Portal belajar ringan untuk materi jaringan, administrasi sistem, latihan soal dan tools siswa SMK.</p><div class="status"><i class="dot"></i>V1 / ONLINE</div></div>
+<div class="section"><div class="section-head"><div><div class="ey">LATEST / MATERIAL</div><h2>Materi terbaru</h2></div><button class="primary" data-page="materi">Lihat semua</button></div><div class="cards" id="homeCards"></div></div>
+<div class="section"><div class="layout"><div class="panel"><h3>📝 Latihan soal</h3><p>30 soal per kategori. Setiap sesi mengambil 15 soal secara acak.</p><button class="primary" data-page="soal">Mulai latihan →</button></div><div class="panel"><h3>🧮 Subnet Tool</h3><p>Hitung network, broadcast, host dan subnet mask.</p><button class="primary" data-page="tools">Buka tool →</button></div></div></div>
+<div class="section"><div class="section-head"><div><div class="ey">YOUR PROGRESS</div><h2>Progress belajar</h2></div><button class="secondary" data-page="profil">Lihat progress</button></div><div class="panel"><div class="profile"><div class="rank" id="hrank">🌱</div><div><b id="hname">Beginner</b><div class="xp" id="hxp">0 XP</div><div class="progress"><i id="hprog"></i></div></div></div></div></div>
 </section>
 
+<section id="materi" class="page"><div class="section"><div class="section-head"><div><div class="ey">SMK / MATERIALS</div><h2>Materi TJKT & ASJ</h2></div><div class="search"><input id="search" placeholder="Search materi..."><button id="searchBtn">⌕</button></div></div><div class="cards" id="cards"></div></div></section>
 
-<!-- MATERI -->
+<section id="materialPage" class="material-page"><div class="section"><button class="primary back" id="back">← Kembali</button><div class="panel material" id="material"></div></div></section>
 
-<section id="materi" class="page" style="display:none">
+<section id="soal" class="page"><div class="section"><div class="ey">SMK / QUIZ</div><h2>Latihan Soal</h2><div class="panel">
+<div class="modes"><button class="mode active" data-d="easy">Easy</button><button class="mode locked" data-d="normal">Normal 🔒</button><button class="mode locked" data-d="hard">Hard 🔒</button><button class="mode locked" data-d="expert">Expert 🔒</button></div>
+<div style="margin:8px 0"><button class="mode active" id="tjkt">TJKT</button><button class="mode" id="asj">ASJ</button></div>
+<div class="qmeta"><span id="cat">TJKT</span><span id="count">1 / 15</span></div><div class="question" id="question"></div><div class="answers" id="answers"></div><div class="quizbar"><span class="muted" id="feed"></span><button class="primary" id="next" disabled>Berikutnya →</button></div>
+</div></div></section>
 
-<div class="section" style="padding-top:42px">
+<section id="tools" class="page"><div class="section"><div class="ey">SMK / NETWORK TOOL</div><h2>Subnet Calculator</h2><div class="panel"><div class="fields"><div class="field"><label>IPv4 ADDRESS</label><input id="ip" value="192.168.46.5"></div><div class="field"><label>PREFIX / CIDR</label><input id="prefix" type="number" min="0" max="32" value="24"></div></div><button class="primary" id="calc" style="margin-top:14px">Calculate</button><div class="result" id="result"></div></div></div></section>
 
-<div class="section-head">
+<section id="profil" class="page"><div class="section"><div class="ey">SMK / PROFILE</div><h2>Progress Belajar</h2><div class="panel"><div class="profile"><div class="rank" id="prank">🌱</div><div><b id="pname">Beginner</b><div class="xp" id="pxp">0 XP</div><div class="progress"><i id="pprog"></i></div></div></div><div class="stats"><div class="stat"><b id="sx">0</b><small>XP</small></div><div class="stat"><b id="sm">0</b><small>Materi selesai</small></div><div class="stat"><b id="sq">0%</b><small>Best Quiz</small></div></div><button class="secondary" id="reset" style="margin-top:15px">Reset Progress</button><div class="owner" id="owner"><b>🔐 OWNER MODE</b><p>Custom rank</p><input id="orank" placeholder="Masukkan rank"><div class="owner-tools"><button class="primary" id="save">Simpan</button><button class="secondary" id="clear">Hapus</button></div></div></div></div></section>
 
-<div>
-<div class="eyebrow">SMK / MATERIALS</div>
-<h2>Materi TJKT & ASJ</h2>
-</div>
-
-<div class="search">
-
-<input id="search" placeholder="Search materi…">
-
-<button type="button">⌕</button>
-
-</div>
-
-</div>
-
-<div class="cards" id="allCards"></div>
-
-<div class="panel" id="reader" style="margin-top:20px">
-
-<div class="eyebrow">READER</div>
-
-<h3>Pilih materi</h3>
-
-<p>
-Klik kartu materi untuk membuka materi lengkap.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- MATERIAL DETAIL -->
-
-<section id="materialPage" class="material-page">
-
-<div class="section" style="padding-top:42px">
-
-<button class="primary back-material" id="backMaterial" type="button">
-← Kembali
-</button>
-
-<div class="panel material-content" id="materialContent"></div>
-
-</div>
-
-</section>
-
-
-<!-- QUIZ -->
-
-<section id="soal" class="page" style="display:none">
-
-<div class="section" style="padding-top:42px">
-
-<div class="eyebrow">SMK / QUIZ</div>
-
-<h2>Latihan Soal</h2>
-
-<div class="panel quiz">
-
-<div class="quiz-modes">
-
-<button class="mode active" data-diff="easy" type="button">
-Easy
-</button>
-
-<button class="mode locked" data-diff="normal" type="button">
-Normal 🔒
-</button>
-
-<button class="mode locked" data-diff="hard" type="button">
-Hard 🔒
-</button>
-
-<button class="mode locked" data-diff="expert" type="button">
-Expert 🔒
-</button>
-
-</div>
-
-<div class="qmeta">
-
-<span id="qcat">TJKT</span>
-
-<span id="qcount">1 / 12</span>
-
-</div>
-
-<div class="question" id="question"></div>
-
-<div class="answers" id="answers"></div>
-
-<div class="quizbar">
-
-<span class="muted" id="feedback"></span>
-
-<button class="primary" id="next" disabled type="button">
-Berikutnya →
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- TOOLS -->
-
-<section id="tools" class="page" style="display:none">
-
-<div class="section" style="padding-top:42px">
-
-<div class="eyebrow">SMK / NETWORK TOOL</div>
-
-<h2>Subnet Calculator</h2>
-
-<div class="panel">
-
-<div class="toolgrid">
-
-<div class="field">
-
-<label>IPv4 ADDRESS</label>
-
-<input id="ip" value="192.168.46.5">
-
-</div>
-
-<div class="field">
-
-<label>PREFIX / CIDR</label>
-
-<input id="prefix" type="number" min="0" max="32" value="24">
-
-</div>
-
-</div>
-
-<button class="primary" id="calc" style="margin-top:14px" type="button">
-Calculate
-</button>
-
-<div class="result" id="result"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PROFIL -->
-
-<section id="profil" class="page" style="display:none">
-
-<div class="section" style="padding-top:42px">
-
-<div class="eyebrow">SMK / PROFILE</div>
-
-<h2>Progress Belajar</h2>
-
-<div class="panel">
-
-<div class="profile-main">
-
-<div class="rank-icon" id="profileRankIcon">
-🌱
-</div>
-
-<div>
-
-<div class="profile-rank" id="profileRank">
-Beginner
-</div>
-
-<div class="profile-xp" id="profileXP">
-0 XP
-</div>
-
-<div class="progress">
-<div id="profileProgress"></div>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="profile-stats">
-
-<div class="stat">
-
-<b id="statXP">0</b>
-
-<small>XP</small>
-
-</div>
-
-<div class="stat">
-
-<b id="statMaterials">0</b>
-
-<small>Materi selesai</small>
-
-</div>
-
-<div class="stat">
-
-<b id="statQuiz">0%</b>
-
-<small>Best Quiz</small>
-
-</div>
-
-</div>
-
-
-<div style="margin-top:15px">
-
-<button class="secondary" id="resetXP" type="button">
-Reset Progress
-</button>
-
-</div>
-
-
-<div class="owner-panel" id="ownerPanel">
-
-<strong>🔐 OWNER MODE</strong>
-
-<p>
-Owner Mode aktif.
-</p>
-
-<input id="ownerRank" placeholder="Custom rank">
-
-<div class="owner-tools">
-
-<button class="primary" id="saveOwner" type="button">
-Simpan Rank
-</button>
-
-<button class="secondary" id="clearOwner" type="button">
-Hapus Custom Rank
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about" class="page" style="display:none">
-
-<div class="section" style="padding-top:42px">
-
-<div class="eyebrow">SMK / ABOUT</div>
-
-<h2>Tentang</h2>
-
-<div class="about">
-
-<div class="aboutbox">
-
-<h3>SMK Learning Hub</h3>
-
-<p>
-V1 portal belajar untuk siswa TJKT dan ASJ.
-Desain mengikuti gaya minimal, gelap, dan fokus
-seperti halaman archive/dashboard modern.
-</p>
-
-</div>
-
-<div class="aboutbox">
-
-<h3>Isi V1 + Fitur Tambahan</h3>
-
-<p>
-Materi, latihan soal, pencarian, subnet calculator,
-profil rank, XP, progress, sistem level latihan,
-dan Owner Mode.
-Semua berjalan langsung di browser tanpa database.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
+<section id="about" class="page"><div class="section"><div class="ey">SMK / ABOUT</div><h2>Tentang</h2><div class="about"><div class="aboutbox"><h3>SMK Learning Hub</h3><p>Portal belajar V1 untuk siswa TJKT dan ASJ dengan tambahan fitur V2.</p></div><div class="aboutbox"><h3>V1 + V2</h3><p>Materi, quiz, XP, rank, progress, search, subnet calculator dan Owner Mode. Semua berjalan langsung di browser.</p></div></div></div></section>
 
 </main>
+<footer><div class="wrap">SMK / LEARNING HUB — V1 • TJKT / ASJ • By Rizki</div></footer>
 
-
-<footer>
-
-<div class="wrap">
-SMK / LEARNING HUB — V1 • TJKT / ASJ • By Rizki
-</div>
-
-</footer>
-
-
-<!-- OWNER LOGIN -->
-
-<div class="owner-overlay" id="ownerOverlay">
-
-<div class="owner-box">
-
-<div class="eyebrow">OWNER ACCESS</div>
-
-<h3>Masukkan Kode Owner</h3>
-
-<p>
-Akses ini tersembunyi. Masukkan kode untuk membuka Owner Mode.
-</p>
-
-<input
-id="ownerCode"
-type="password"
-placeholder="Kode Owner"
-autocomplete="off"
->
-
-<div class="owner-actions">
-
-<button class="secondary" id="cancelOwner" type="button">
-Batal
-</button>
-
-<button class="primary" id="loginOwner" type="button">
-Masuk
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
+<div class="overlay" id="overlay"><div class="box"><div class="ey">OWNER ACCESS</div><h3>Masukkan Kode Owner</h3><input id="code" type="password" placeholder="Kode Owner"><div class="actions"><button class="secondary" id="cancel">Batal</button><button class="primary" id="login">Masuk</button></div></div></div>
 <div class="toast" id="toast"></div>
 
-
 <script>
-
-/* =========================
-   DATA
-========================= */
-
 const M=[
+["IP Address & Subnetting","TJKT","🌐","Dasar IPv4, CIDR, subnet mask, network, broadcast dan host.","IP address adalah alamat perangkat dalam jaringan. CIDR menentukan bagian network dan host."],
+["MikroTik Dasar","TJKT","📡","IP, DNS, DHCP dan NAT.","Konfigurasi dasar MikroTik meliputi interface, IP, DNS, DHCP dan NAT."],
+["Cisco & Packet Tracer","TJKT","🖧","Switch, router, VLAN dan konfigurasi dasar.","Cisco digunakan untuk mengelola jaringan. VLAN membagi jaringan secara logis."],
+["Computer Hardware","TJKT","🖥️","CPU, RAM, storage, motherboard, PSU dan NIC.","CPU memproses data, RAM menjadi memori kerja, storage menyimpan data."],
+["Control Panel Hosting","ASJ","☁️","cPanel, CyberPanel dan layanan hosting.","Control panel membantu mengelola website, domain, database, email dan file."],
+["VPS vs Shared Hosting","ASJ","🗄️","Perbedaan resource dan kontrol.","Shared hosting berbagi resource, VPS memberi kontrol dan isolasi lebih besar."],
+["Linux Dasar","ASJ","🐧","Perintah terminal dasar.","pwd, ls, cd, mkdir, cp dan mv adalah perintah Linux dasar."],
+["Keamanan Jaringan","TJKT","🔐","Firewall, password, update dan backup.","Keamanan membutuhkan kontrol akses, firewall, update dan backup."]
+];
 
-[
-"IP Address & Subnetting",
-"TJKT",
-"🌐",
-"Dasar IPv4, CIDR, subnet mask, network, broadcast dan host.",
-"IP address adalah alamat perangkat dalam jaringan. Prefix /24 berarti 24 bit untuk network. Network adalah alamat pertama dan broadcast alamat terakhir subnet."
-],
+const T=[
+["Subnet mask digunakan untuk...?","Menentukan network dan host","Mengubah IP jadi domain","Membuat kabel","Mengganti monitor"],
+["/24 sama dengan...?","255.255.255.0","255.255.0.0","255.0.0.0","255.255.255.252"],
+["Perangkat penghubung jaringan berbeda?","Router","RAM","Monitor","Keyboard"],
+["DHCP digunakan untuk...?","Memberikan konfigurasi IP otomatis","Membuat kabel","Menghapus DNS","Mematikan server"],
+["Mode konfigurasi global Cisco?","configure terminal","show run","ping","copy"],
+["RAM berfungsi sebagai...?","Memori kerja sementara","Penyimpanan permanen","Sumber listrik","Router"],
+["Broadcast adalah...?","Alamat terakhir subnet","Alamat pertama subnet","Alamat DNS","Gateway saja"],
+["IPv4 memiliki panjang...?","32 bit","16 bit","64 bit","128 bit"],
+["VLAN digunakan untuk...?","Membagi jaringan secara logis","Menambah RAM","Mengganti CPU","Membuat hard disk"],
+["Gateway digunakan untuk...?","Keluar menuju jaringan lain","Mengganti nama PC","Menghapus file","Menambah RAM"],
+["NAT masquerade berguna untuk...?","Menyamarkan IP private saat keluar","Membuat RAM","Menghapus VLAN","Mengganti monitor"],
+["Ping digunakan untuk...?","Menguji konektivitas","Membuat akun","Menghapus IP","Membuat kabel"],
+["Switch bekerja terutama pada...?","LAN","Internet satelit","CPU","RAM"],
+["MAC address adalah...?","Alamat hardware jaringan","Alamat website","Password WiFi","Nama domain"],
+["DNS berfungsi untuk...?","Menerjemahkan domain ke IP","Mengisi RAM","Membuat VLAN","Memformat disk"],
+["Router bekerja menghubungkan...?","Jaringan berbeda","Keyboard","Monitor","File"],
+["Ethernet adalah teknologi untuk...?","Jaringan kabel","Penyimpanan","Sistem operasi","Database"],
+["/30 memiliki jumlah alamat...?","4","8","16","32"],
+["IP private 192.168.x.x termasuk...?","Private","Public","Loopback","Broadcast"],
+["Firewall berfungsi untuk...?","Mengontrol lalu lintas jaringan","Membuat RAM","Mengganti CPU","Membuat kabel"],
+["DHCP server memberikan...?","IP otomatis","CPU","Hard disk","Monitor"],
+["VLAN trunk membawa...?","Beberapa VLAN","Satu file","Satu monitor","RAM"],
+["Access port biasanya membawa...?","Satu VLAN","Semua VLAN tanpa tag","Internet saja","DNS saja"],
+["Default route digunakan ketika...?","Tidak ada rute lebih spesifik","RAM penuh","PC mati","DNS error"],
+["255.255.255.0 adalah...?","/24","/16","/8","/30"],
+["Loopback IPv4 adalah...?","127.0.0.1","192.168.1.1","8.8.8.8","255.255.255.255"],
+["NIC digunakan untuk...?","Koneksi jaringan","Mengolah CPU","Menyimpan file","Mendinginkan PC"],
+["SSH digunakan untuk...?","Remote aman","Membuat RAM","Mencetak dokumen","Membuat kabel"],
+["Topologi star memakai pusat berupa...?","Switch","Keyboard","Monitor","Printer"],
+["Bandwidth menunjukkan...?","Kapasitas transfer data","Ukuran monitor","Jumlah CPU","Ukuran RAM"]
+];
 
-[
-"MikroTik Dasar",
-"TJKT",
-"📡",
-"IP, DNS, DHCP dan NAT.",
-"Konfigurasi dasar router meliputi interface, IP address, DNS, DHCP bila diperlukan, dan NAT masquerade untuk akses internet."
-],
+const A=[
+["cPanel adalah...?","Control panel hosting","Bahasa pemrograman","Sistem operasi","Kartu jaringan"],
+["VPS umumnya memiliki...?","Kontrol resource lebih besar","Tidak punya IP","Tidak membutuhkan server","Hanya untuk email"],
+["Linux merupakan...?","Sistem operasi","Router fisik","Kabel","Browser"],
+["Perintah melihat isi folder Linux?","ls","cd","pwd","mkdir"],
+["Backup berguna untuk...?","Memulihkan data","Mempercepat monitor","Mengganti IP","Menghapus server"],
+["Web server digunakan untuk...?","Menyajikan website","Membuat RAM","Mengganti CPU","Menghapus DNS"],
+["Apache adalah...?","Web server","Database","Kabel","Router"],
+["Nginx adalah...?","Web server","Sistem operasi","Monitor","Switch"],
+["MySQL adalah...?","Database","Firewall","Browser","NIC"],
+["PHP adalah...?","Bahasa pemrograman","Kabel","CPU","Router"],
+["Domain digunakan sebagai...?","Nama/alamat website","RAM","Hard disk","Firewall"],
+["SSL/TLS berguna untuk...?","Mengamankan koneksi","Menambah RAM","Mengganti CPU","Menghapus file"],
+["SSH port default adalah...?","22","80","443","21"],
+["HTTP port default adalah...?","80","22","443","53"],
+["HTTPS port default adalah...?","443","21","25","110"],
+["FTP digunakan untuk...?","Transfer file","DNS","Routing","Backup listrik"],
+["DNS server berfungsi...?","Resolusi nama domain","Membuat CPU","Mengatur RAM","Membuat kabel"],
+["VPS adalah...?","Virtual Private Server","Video Processing System","Virtual Printer Service","Visual Private Switch"],
+["Shared hosting berarti...?","Resource server dipakai bersama","Server tanpa IP","Server pribadi fisik","Tidak memakai storage"],
+["Control panel mempermudah...?","Pengelolaan hosting","Pembuatan CPU","Perakitan monitor","Pembuatan kabel"],
+["Cron digunakan untuk...?","Menjalankan tugas terjadwal","Mengganti RAM","Membuat domain","Memformat monitor"],
+["Linux command pwd menampilkan...?","Lokasi folder saat ini","Isi file","IP public","Password"],
+["mkdir digunakan untuk...?","Membuat folder","Menghapus folder","Memindahkan file","Melihat proses"],
+["cd digunakan untuk...?","Berpindah direktori","Membuat user","Menghapus server","Mengubah DNS"],
+["chmod digunakan untuk...?","Mengatur permission","Membuat database","Mengubah IP","Menghapus website"],
+["sudo digunakan untuk...?","Menjalankan perintah dengan hak lebih tinggi","Membuat domain","Mengganti monitor","Mematikan DNS"],
+["Database menyimpan...?","Data terstruktur","Kabel","CPU","Layar"],
+["Firewall server berfungsi...?","Menyaring koneksi","Menambah storage fisik","Mengganti motherboard","Membuat domain"],
+["Update sistem penting untuk...?","Perbaikan dan keamanan","Mengurangi RAM","Menghapus website","Membuat kabel"],
+["Uptime berarti...?","Waktu layanan tersedia","Ukuran hard disk","Jumlah user","Kecepatan CPU"]
+];
 
-[
-"Cisco & Packet Tracer",
-"TJKT",
-"🖧",
-"Switch, router, VLAN dan konfigurasi dasar.",
-"Cisco digunakan untuk mengelola jaringan. VLAN membagi jaringan secara logis, sedangkan router menghubungkan jaringan berbeda."
-],
+const ranks=[
+[0,"Beginner","🌱"],[100,"Learner","📖"],[300,"Junior Technician","🔧"],
+[600,"Network Technician","🖧"],[1000,"Security Specialist","🛡️"],
+[1500,"System Expert","⚡"],[2500,"TJKT Master","👑"]
+];
+let S=JSON.parse(localStorage.getItem("rizz_learning")||'{"xp":0,"mat":[],"best":{},"custom":""}');
+const save=()=>localStorage.setItem("rizz_learning",JSON.stringify(S));
+const toast=x=>{let e=$("#toast");e.textContent=x;e.classList.add("on");setTimeout(()=>e.classList.remove("on"),1800)};
+const $=x=>document.querySelector(x), $$=x=>document.querySelectorAll(x);
+function rank(){let r=ranks[0];for(const x of ranks)if(S.xp>=x[0])r=x;return S.custom||r[1]}
+function info(){let r=ranks[0];for(const x of ranks)if(S.xp>=x[0])r=x;return r}
+function nav(id){$$(".page,.material-page").forEach(x=>x.classList.remove("on"));$("#"+id).classList.add("on");$$("nav button").forEach(x=>x.classList.toggle("active",x.dataset.page==id));$("#nav").classList.remove("open");scrollTo(0,0);update()}
+function update(){let r=info(),next=ranks.find(x=>x[0]>S.xp),pct=next?Math.min(100,(S.xp-r[0])*100/(next[0]-r[0])):100,n=rank();["hname","pname"].forEach(x=>$( "#"+x).textContent=n);$("#hrank").textContent=$("#prank").textContent=r[2];$("#hxp").textContent=$("#pxp").textContent=S.xp+" XP";$("#hprog").style.width=$("#pprog").style.width=pct+"%";$("#sx").textContent=S.xp;$("#sm").textContent=S.mat.length;let b=Math.max(...Object.values(S.best),0);$("#sq").textContent=b+"%";$$(".mode").forEach(x=>{let d=x.dataset.d;if(!d)return;let ok=d=="easy"||d=="normal"&&b>=70||d=="hard"&&S.best.normal>=75||d=="expert"&&S.best.hard>=80;x.classList.toggle("locked",!ok);x.textContent=d[0].toUpperCase()+d.slice(1)+(ok?"":" 🔒")})}
+function cards(q=""){let a=M.filter(x=>x.join(" ").toLowerCase().includes(q.toLowerCase()));$("#cards").innerHTML=a.map((x,i)=>`<div class="card" data-m="${M.indexOf(x)}"><small>${String(M.indexOf(x)+1).padStart(2,"0")} / ${x[1]}</small><div class="icon">${x[2]}</div><h3>${x[0]}</h3><p>${x[3]}</p></div>`).join("");$$(".card").forEach(e=>e.onclick=()=>openMat(+e.dataset.m))}
+function openMat(i){let x=M[i];nav("materialPage");$("#material").innerHTML=`<div class="ey">${x[1]}</div><div style="font-size:40px">${x[2]}</div><h2>${x[0]}</h2><p>${x[3]}</p><h3>Materi</h3><p>${x[4]}</p><button class="primary" id="done">${S.mat.includes(i)?"✓ Sudah selesai":"+10 XP • Tandai selesai"}</button>`;$("#done").onclick=()=>{if(!S.mat.includes(i)){S.mat.push(i);S.xp+=10;save();update();toast("+10 XP");$("#done").textContent="✓ Sudah selesai"}}}
+$("#homeCards").innerHTML=M.slice(0,3).map((x,i)=>`<div class="card" data-m="${i}"><small>0${i+1} / ${x[1]}</small><div class="icon">${x[2]}</div><h3>${x[0]}</h3><p>${x[3]}</p></div>`).join("");$$("[data-m]").forEach(e=>e.onclick=()=>openMat(+e.dataset.m));cards();
+$$("[data-page]").forEach(e=>e.onclick=()=>nav(e.dataset.page));
+$("#menu").onclick=()=>$("#nav").classList.toggle("open");$("#back").onclick=()=>nav("materi");
+$("#search").oninput=e=>cards(e.target.value);$("#searchBtn").onclick=()=>cards($("#search").value);
 
-[
-"Computer Hardware",
-"TJKT",
-"🖥️",
-"CPU, RAM, storage, motherboard, PSU dan NIC.",
-"CPU memproses data, RAM menjadi memori kerja, storage menyimpan data, motherboard menghubungkan komponen, PSU memberi daya dan NIC menyediakan koneksi jaringan."
-],
+let diff="easy",cat="TJKT",list=[],qi=0,answered=false;
+function pool(){let p=(cat=="TJKT"?T:A).map(x=>({q:x[0],a:x[1],o:x.slice(1)}));p.sort(()=>Math.random()-.5);return p.slice(0,15)}
+function start(){list=pool();qi=0;showQ()}
+function showQ(){answered=false;let x=list[qi];$("#cat").textContent=cat+" / "+diff.toUpperCase();$("#count").textContent=qi+1+" / 15";$("#question").textContent=x.q;$("#feed").textContent="";$("#next").disabled=true;let o=[...x.o].sort(()=>Math.random()-.5);$("#answers").innerHTML=o.map(v=>`<button class="answer">${v}</button>`).join("");$$(".answer").forEach(e=>e.onclick=()=>answer(e,x.a))}
+function answer(e,a){if(answered)return;answered=true;let ok=e.textContent==a;e.classList.add(ok?"correct":"wrong");if(!ok)$$(".answer").forEach(x=>{if(x.textContent==a)x.classList.add("correct")});$("#feed").textContent=ok?"✓ Benar":"✕ Salah";$("#next").disabled=false}
+$$(".mode").forEach(e=>e.onclick=()=>{let d=e.dataset.d,b=Math.max(...Object.values(S.best),0),ok=d=="easy"||d=="normal"&&b>=70||d=="hard"&&S.best.normal>=75||d=="expert"&&S.best.hard>=80;if(!ok)return toast("Level masih terkunci");diff=d;$$(".mode").forEach(x=>x.classList.remove("active"));e.classList.add("active");start()});
+$("#tjkt").onclick=()=>{cat="TJKT";$("#tjkt").classList.add("active");$("#asj").classList.remove("active");start()};
+$("#asj").onclick=()=>{cat="ASJ";$("#asj").classList.add("active");$("#tjkt").classList.remove("active");start()};
+$("#next").onclick=()=>{if(qi<14){qi++;showQ()}else{let score=Math.round(list.filter((x,i)=>false).length);toast("Quiz selesai!");let xp={easy:5,normal:10,hard:15,expert:25}[diff];S.xp+=xp;S.best[diff]=Math.max(S.best[diff]||0,100);save();update();start()}};
+start();
 
-[
-"Control Panel Hosting",
-"ASJ",
-"☁️",
-"cPanel, CyberPanel dan layanan hosting.",
-"Control panel mempermudah pengelolaan website, domain, database, email, file, DNS dan SSL sesuai fitur panel."
-],
+function ipnum(s){let a=s.split(".").map(Number);return a.length==4&&a.every(x=>Number.isInteger(x)&&x>=0&&x<=255)?a.reduce((n,x)=>n*256+x):null}
+function ips(n){return[(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255].join(".")}
+$("#calc").onclick=()=>{let n=ipnum($("#ip").value),p=+$("#prefix").value;if(n===null||p<0||p>32)return toast("IPv4 / CIDR tidak valid");let mask=p==0?0:(0xffffffff<<(32-p))>>>0,net=(n&mask)>>>0,total=2**(32-p),bc=(net+total-1)>>>0,hosts=p>=31?total:Math.max(0,total-2);$("#result").innerHTML=`<div><small>NETWORK</small><b>${ips(net)}</b></div><div><small>BROADCAST</small><b>${ips(bc)}</b></div><div><small>MASK</small><b>${ips(mask)}</b></div><div><small>HOST</small><b>${hosts}</b></div>`};
 
-[
-"VPS vs Shared Hosting",
-"ASJ",
-"🗄️",
-"Perbeda
+$("#reset").onclick=()=>{if(confirm("Reset semua progress?")){S={xp:0,mat:[],best:{},custom:""};save();update();toast("Progress direset")}};
+let taps=0,timer;$("#smk").onclick=()=>{taps++;clearTimeout(timer);timer=setTimeout(()=>taps=0,1000);if(taps>=5){taps=0;$("#overlay").classList.add("on");$("#code").focus()}};
+$("#cancel").onclick=()=>$("#overlay").classList.remove("on");
+$("#login").onclick=()=>{if($("#code").value==="Rizki ckrk"){$("#overlay").classList.remove("on");$("#owner").classList.add("on");toast("Owner Mode aktif")}else toast("Kode salah")};
+$("#save").onclick=()=>{S.custom=$("#orank").value.trim();save();update();toast("Rank disimpan")};
+$("#clear").onclick=()=>{S.custom="";$("#orank").value="";save();update();toast("Custom rank dihapus")};
+update();
+</script>
+</body>
+</html>
