@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#07090d">
 <title>RIZZ / LEARNING HUB</title>
 
 <style>
@@ -20,48 +19,56 @@
 
 *{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
-  font-size:14px;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-button,input{font:inherit}
+button,
+input{
+  font:inherit;
+}
 
-.wrap{
-  max-width:1180px;
-  margin:auto;
-  padding:0 18px;
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
 /* HEADER */
 header{
-  height:76px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
   position:sticky;
   top:0;
-  background:rgba(7,9,13,.93);
-  backdrop-filter:blur(15px);
-  z-index:20;
+  z-index:100;
+  height:76px;
+  border-bottom:1px solid var(--line);
+  background:rgba(7,9,13,.94);
+  backdrop-filter:blur(12px);
 }
 
-.head{
+.nav{
+  max-width:1180px;
+  height:100%;
+  margin:auto;
+  padding:0 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
 }
 
 .logo{
   font-weight:900;
-  letter-spacing:-.04em;
-  font-size:21px;
+  letter-spacing:1px;
+  font-size:18px;
 }
 
 .logo span{
@@ -73,207 +80,150 @@ nav{
   gap:6px;
 }
 
-nav button{
-  background:none;
-  color:#9ba4b1;
-  border:1px solid transparent;
-  padding:9px 12px;
+.navbtn{
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  padding:10px 13px;
   border-radius:8px;
   cursor:pointer;
 }
 
-nav button:hover,
-nav button.active{
-  color:#fff;
-  background:#101722;
-  border-color:#202a38;
+.navbtn:hover,
+.navbtn.active{
+  color:var(--text);
+  background:#111722;
 }
 
 .lang{
-  color:#929aa7;
-  font-size:12px;
-  margin-left:auto;
+  color:var(--muted);
+  font-size:13px;
+  margin-left:12px;
 }
 
-.mobile{
+.menu{
   display:none;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--text);
+  padding:8px 11px;
+  border-radius:8px;
+}
+
+/* PAGE */
+.page{
+  display:none;
+}
+
+.page.show{
+  display:block;
 }
 
 /* HERO */
 .hero{
-  padding:70px 0 58px;
-  border-bottom:1px solid var(--line);
+  max-width:1180px;
+  margin:auto;
+  padding:90px 20px 80px;
+  min-height:470px;
+  display:flex;
+  align-items:center;
+}
+
+.heroGrid{
+  width:100%;
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:50px;
+  align-items:center;
 }
 
 .eyebrow{
-  color:#687383;
-  font-size:11px;
-  letter-spacing:.14em;
+  color:var(--green);
+  font-size:12px;
   font-weight:800;
+  letter-spacing:2px;
+  margin-bottom:15px;
 }
 
-.hero h1{
-  font-size:clamp(42px,8vw,82px);
-  letter-spacing:-.07em;
-  line-height:.92;
-  margin:14px 0 18px;
+h1{
+  font-size:clamp(42px,7vw,76px);
+  line-height:.95;
+  margin:0 0 24px;
+  letter-spacing:-3px;
 }
 
-.hero h1 em{
+h1 em{
+  color:var(--green);
   font-style:normal;
-  color:#8f98a6;
 }
 
 .hero p{
-  max-width:620px;
-  color:#8993a1;
+  max-width:650px;
+  color:var(--muted);
   line-height:1.7;
-  margin:0;
+  font-size:16px;
 }
 
 .status{
-  display:inline-flex;
+  border:1px solid var(--line);
+  background:var(--panel);
+  padding:20px;
+  border-radius:12px;
+}
+
+.statusTop{
+  display:flex;
   align-items:center;
-  gap:7px;
-  margin-top:25px;
-  color:#8e99a8;
-  font-size:12px;
+  justify-content:space-between;
+  margin-bottom:18px;
 }
 
 .dot{
-  width:7px;
-  height:7px;
+  width:9px;
+  height:9px;
   background:var(--green);
   border-radius:50%;
-  box-shadow:0 0 12px var(--green);
+  display:inline-block;
+  margin-right:8px;
+}
+
+.status small{
+  color:var(--muted);
 }
 
 /* SECTION */
 .section{
-  padding:38px 0;
-  border-bottom:1px solid var(--line);
+  max-width:1180px;
+  margin:auto;
+  padding:70px 20px;
 }
 
-.section-head{
+.sectionHead{
   display:flex;
   justify-content:space-between;
   align-items:end;
-  margin-bottom:20px;
+  gap:20px;
+  margin-bottom:30px;
 }
 
-.section h2{
-  font-size:24px;
-  letter-spacing:-.03em;
-  margin:6px 0;
-}
-
-.section-head span{
-  color:#697382;
-  font-size:11px;
-}
-
-/* SEARCH */
-.search{
-  width:min(460px,100%);
-  display:flex;
-  background:#0c1119;
-  border:1px solid var(--line);
-  border-radius:9px;
-  overflow:hidden;
-}
-
-.search input{
-  flex:1;
-  background:none;
-  border:0;
-  outline:0;
-  color:#fff;
-  padding:12px;
-}
-
-.search button{
-  background:#121a25;
-  color:#dbe2eb;
-  padding:0 15px;
-  border:0;
-  border-left:1px solid var(--line);
-}
-
-/* CARDS */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
-  border-left:1px solid var(--line);
-}
-
-.card{
-  padding:20px;
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  min-height:155px;
-  background:linear-gradient(135deg,#0a0e14,#0c1118);
-  cursor:pointer;
-  transition:.15s;
-}
-
-.card:hover{
-  background:#0f151e;
-  transform:translateY(-2px);
-}
-
-.number{
-  font-size:11px;
-  color:#4f5b6b;
-}
-
-.card .icon{
-  font-size:25px;
-  margin:17px 0 10px;
-}
-
-.card h3{
-  font-size:16px;
-  margin:0 0 7px;
-}
-
-.card p{
-  color:#6f7987;
-  font-size:12px;
-  line-height:1.5;
+.sectionHead h2{
   margin:0;
+  font-size:32px;
 }
 
-/* PANELS */
-.layout{
-  display:grid;
-  grid-template-columns:1.3fr .7fr;
-  gap:22px;
+.sectionHead p{
+  margin:7px 0 0;
+  color:var(--muted);
 }
 
-.panel{
-  border:1px solid var(--line);
-  background:#0b1017;
-  padding:20px;
-  border-radius:10px;
-}
-
-.panel h3{
-  margin:0 0 8px;
-}
-
-.panel p{
-  color:#788291;
-  line-height:1.65;
-}
-
+/* BUTTON */
 .primary{
-  background:var(--green);
-  color:#04130b;
   border:0;
-  border-radius:7px;
-  padding:10px 14px;
-  font-weight:850;
+  background:var(--green);
+  color:#06100a;
+  padding:11px 17px;
+  border-radius:8px;
+  font-weight:800;
   cursor:pointer;
 }
 
@@ -281,296 +231,324 @@ nav button.active{
   filter:brightness(1.08);
 }
 
-/* READER */
-.reader{
-  margin-top:20px;
-}
-
-.reader-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  margin-bottom:20px;
-}
-
-.back{
-  background:#111823;
-  color:#dce3eb;
-  border:1px solid #202a38;
-  border-radius:7px;
-  padding:9px 13px;
+.secondary{
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--text);
+  padding:11px 17px;
+  border-radius:8px;
   cursor:pointer;
 }
 
-.back:hover{
-  background:#17202c;
+.secondary:hover{
+  border-color:#303b4c;
 }
 
-.reader-title{
-  font-size:30px;
-  letter-spacing:-.04em;
-  margin:10px 0;
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
 }
 
-.reader-content{
-  color:#a4adba;
-  line-height:1.8;
+.card{
+  border:1px solid var(--line);
+  background:var(--panel);
+  padding:20px;
+  border-radius:12px;
+  min-height:180px;
+  cursor:pointer;
+  transition:.18s ease;
 }
 
-.reader-content h4{
-  color:#fff;
-  margin-top:28px;
-  margin-bottom:8px;
+.card:hover{
+  transform:translateY(-3px);
+  border-color:#344154;
+  background:#101620;
 }
 
-.codebox{
-  background:#070b10;
-  border:1px solid #202a38;
-  border-radius:8px;
-  padding:15px;
-  overflow:auto;
-  color:#9ce9c0;
-  font-family:monospace;
+.cardIcon{
+  font-size:27px;
+  margin-bottom:25px;
+}
+
+.card h3{
+  margin:0 0 8px;
+  font-size:17px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin:0;
+}
+
+.tag{
+  display:inline-block;
+  margin-top:16px;
+  font-size:11px;
+  color:var(--blue);
+}
+
+/* PANEL */
+.panel{
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:12px;
+  padding:25px;
+}
+
+.panel h3{
+  margin-top:0;
+}
+
+/* SEARCH */
+.search{
+  width:100%;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--text);
+  padding:14px 16px;
+  border-radius:9px;
+  outline:none;
+  margin-bottom:20px;
+}
+
+.search:focus{
+  border-color:var(--blue);
+}
+
+/* QUICK */
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.quickBox{
+  border:1px solid var(--line);
+  background:var(--panel);
+  padding:25px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.quickBox:hover{
+  border-color:#344154;
+}
+
+.quickBox h3{
+  margin:0 0 8px;
+}
+
+.quickBox p{
+  color:var(--muted);
+  line-height:1.6;
   font-size:13px;
 }
 
-/* QUIZ */
-.quiz{
-  max-width:760px;
+/* READER */
+.reader{
+  margin-top:25px;
 }
 
-.qmeta{
+.readerContent{
+  line-height:1.8;
+  color:#c8ced7;
+}
+
+.readerContent h4{
+  color:var(--text);
+  margin-top:25px;
+}
+
+.readerContent code{
+  background:#05070a;
+  border:1px solid var(--line);
+  padding:2px 6px;
+  border-radius:5px;
+  color:var(--green);
+}
+
+.backBtn{
+  margin-bottom:20px;
+}
+
+/* QUIZ */
+.quizBox{
+  max-width:800px;
+  margin:auto;
+}
+
+.quizMeta{
   display:flex;
   justify-content:space-between;
-  color:#687382;
-  font-size:11px;
-  margin-bottom:16px;
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:20px;
 }
 
 .question{
-  font-size:20px;
-  line-height:1.4;
-  margin-bottom:18px;
+  font-size:22px;
+  line-height:1.5;
+  margin-bottom:25px;
 }
 
 .answers{
   display:grid;
-  gap:8px;
+  gap:10px;
 }
 
 .answer{
-  background:#0d131c;
-  color:#dce3eb;
-  border:1px solid #202a38;
-  border-radius:8px;
-  padding:13px;
+  width:100%;
   text-align:left;
+  border:1px solid var(--line);
+  background:#10151d;
+  color:var(--text);
+  padding:15px;
+  border-radius:9px;
   cursor:pointer;
 }
 
 .answer:hover{
-  border-color:#3b4a60;
+  border-color:var(--blue);
 }
 
 .answer.correct{
-  border-color:#218a58;
-  background:#0d2119;
+  border-color:var(--green);
 }
 
 .answer.wrong{
-  border-color:#9d3843;
-  background:#241015;
+  border-color:var(--red);
 }
 
-.quizbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:17px;
-  gap:12px;
-}
-
-.muted{
-  color:#687382;
+.feedback{
+  min-height:25px;
+  margin:18px 0;
+  color:var(--muted);
 }
 
 /* TOOLS */
-.toolgrid{
+.formGrid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:10px;
+  gap:14px;
 }
 
-.field label{
+label{
+  color:var(--muted);
+  font-size:13px;
   display:block;
-  color:#8993a1;
-  font-size:11px;
-  margin-bottom:6px;
+  margin-bottom:7px;
 }
 
-.field input{
+.input{
   width:100%;
-  background:#070b10;
-  color:#fff;
-  border:1px solid #232e3c;
-  border-radius:7px;
-  padding:11px;
+  padding:13px;
+  border:1px solid var(--line);
+  background:#080b10;
+  color:var(--text);
+  border-radius:8px;
   outline:none;
 }
 
 .result{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-top:14px;
-}
-
-.result div{
+  margin-top:20px;
   border:1px solid var(--line);
-  background:#080d13;
-  padding:11px;
-  border-radius:7px;
-}
-
-.result small{
-  display:block;
-  color:#687382;
-  font-size:10px;
-}
-
-.result b{
-  display:block;
-  margin-top:3px;
+  background:#080b10;
+  padding:18px;
+  border-radius:9px;
+  line-height:1.8;
 }
 
 /* ABOUT */
 .about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-.aboutbox{
-  border:1px solid var(--line);
-  padding:22px;
-  background:#0b1017;
-}
-
-.aboutbox p{
-  color:#788291;
-  line-height:1.7;
+  max-width:800px;
+  line-height:1.8;
+  color:#c8ced7;
 }
 
 /* FOOTER */
 footer{
-  padding:35px 0;
-  color:#505b69;
-  font-size:11px;
+  border-top:1px solid var(--line);
+  padding:35px 20px;
+  color:var(--muted);
+  text-align:center;
+  font-size:13px;
 }
 
 /* TOAST */
 .toast{
   position:fixed;
-  right:18px;
-  bottom:18px;
-  background:#eaf2f8;
-  color:#071016;
-  padding:11px 14px;
+  bottom:25px;
+  left:50%;
+  transform:translate(-50%,20px);
+  background:#121821;
+  border:1px solid var(--line);
+  padding:12px 18px;
   border-radius:8px;
   opacity:0;
-  transform:translateY(10px);
+  pointer-events:none;
   transition:.2s;
-  z-index:99;
+  z-index:999;
 }
 
 .toast.show{
   opacity:1;
-  transform:none;
+  transform:translate(-50%,0);
 }
 
 /* MOBILE */
-@media(max-width:720px){
-
-  .wrap{
-    padding:0 14px;
+@media(max-width:850px){
+  .heroGrid{
+    grid-template-columns:1fr;
   }
 
-  header{
-    height:62px;
+  .grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .head{
-    width:100%;
+  .quick{
+    grid-template-columns:1fr;
   }
 
   nav{
     display:none;
+    position:absolute;
+    top:76px;
+    left:0;
+    right:0;
+    padding:12px;
+    background:#07090d;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
   }
 
-  .mobile{
+  nav.open{
+    display:flex;
+  }
+
+  .menu{
     display:block;
-    background:#111823;
-    color:#fff;
-    border:1px solid #202a38;
-    border-radius:7px;
-    padding:8px 10px;
+  }
+}
+
+@media(max-width:550px){
+  .grid{
+    grid-template-columns:1fr;
   }
 
-  .lang{
-    display:none;
+  .formGrid{
+    grid-template-columns:1fr;
+  }
+
+  h1{
+    font-size:48px;
   }
 
   .hero{
-    padding:48px 0 40px;
-  }
-
-  .hero h1{
-    font-size:52px;
-  }
-
-  .cards{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    min-height:130px;
-  }
-
-  .layout,
-  .about{
-    grid-template-columns:1fr;
-  }
-
-  .section{
-    padding:30px 0;
-  }
-
-  .section-head{
-    align-items:start;
-    gap:12px;
-    flex-direction:column;
-  }
-
-  .toolgrid{
-    grid-template-columns:1fr;
-  }
-
-  .search{
-    width:100%;
-  }
-
-  .aboutbox{
-    padding:18px;
-  }
-
-  .reader-title{
-    font-size:25px;
-  }
-
-  .reader-head{
-    align-items:flex-start;
-    flex-direction:column;
+    padding-top:60px;
   }
 }
 </style>
@@ -579,639 +557,578 @@ footer{
 <body>
 
 <header>
-<div class="wrap head">
+  <div class="nav">
 
-<div class="logo">
-RIZZ <span>/</span> LEARNING HUB
-</div>
+    <div class="logo">
+      RIZZ <span>/</span> LEARNING HUB
+    </div>
 
-<nav>
-<button class="active" data-page="home">Home</button>
-<button data-page="materi">Materi</button>
-<button data-page="soal">Latihan</button>
-<button data-page="tools">Tools</button>
-<button data-page="about">Tentang</button>
-</nav>
+    <nav id="nav">
+      <button type="button" class="navbtn active" data-page="home">Home</button>
+      <button type="button" class="navbtn" data-page="materi">Materi</button>
+      <button type="button" class="navbtn" data-page="soal">Latihan</button>
+      <button type="button" class="navbtn" data-page="tools">Tools</button>
+      <button type="button" class="navbtn" data-page="tentang">Tentang</button>
+    </nav>
 
-<div class="lang">ID</div>
+    <div>
+      <span class="lang">ID</span>
+      <button type="button" class="menu" id="menu">☰</button>
+    </div>
 
-<button class="mobile" id="mobileBtn">☰</button>
-
-</div>
+  </div>
 </header>
 
-<main class="wrap">
 
 <!-- HOME -->
-<section id="home" class="page">
+<section id="home" class="page show">
 
-<div class="hero">
+  <div class="hero">
+    <div class="heroGrid">
 
-<div class="eyebrow">
-RIZZ / TJKT / ASJ
-</div>
+      <div>
+        <div class="eyebrow">RIZZ / TJKT / ASJ</div>
 
-<h1>
-Belajar.<br>
-<em>Lebih simpel.</em>
-</h1>
+        <h1>
+          Belajar.
+          <em>Lebih simpel.</em>
+        </h1>
 
-<p>
-Portal belajar ringan untuk materi jaringan, administrasi sistem,
-latihan soal, dan tools yang sering dipakai siswa SMK.
-</p>
+        <p>
+          Materi belajar untuk Teknik Jaringan Komputer dan Telekomunikasi
+          serta Administrasi Sistem Jaringan. Ringkas, jelas, dan gampang
+          dipahami.
+        </p>
 
-<div class="status">
-<i class="dot"></i>
-RIZZ V1 / ONLINE
-</div>
+        <div style="margin-top:25px">
+          <button type="button" class="primary" data-page="materi">
+            Mulai Belajar
+          </button>
+        </div>
+      </div>
 
-</div>
+      <div class="status">
 
-<div class="section">
+        <div class="statusTop">
+          <strong>STATUS</strong>
+          <span>
+            <span class="dot"></span>
+            ONLINE
+          </span>
+        </div>
 
-<div class="section-head">
+        <small>
+          <b style="color:var(--text)">V1</b>
+          / Learning Hub
+        </small>
 
-<div>
-<div class="eyebrow">LATEST / MATERIAL</div>
-<h2>Materi terbaru</h2>
-</div>
+        <div style="height:1px;background:var(--line);margin:20px 0"></div>
 
-<button class="primary" data-page="materi">
-Lihat semua
-</button>
+        <small>
+          Materi TJKT + ASJ<br>
+          Latihan soal<br>
+          Tools jaringan
+        </small>
 
-</div>
+      </div>
 
-<div class="cards" id="homeCards"></div>
+    </div>
+  </div>
 
-</div>
 
-<div class="section">
+  <div class="section">
 
-<div class="section-head">
+    <div class="sectionHead">
+      <div>
+        <h2>Materi Terbaru</h2>
+        <p>Materi yang bisa langsung kamu pelajari.</p>
+      </div>
 
-<div>
-<div class="eyebrow">QUICK ACCESS</div>
-<h2>Akses cepat</h2>
-</div>
+      <button type="button" class="secondary" data-page="materi">
+        Lihat semua
+      </button>
+    </div>
 
-</div>
+    <div class="grid" id="latestCards"></div>
 
-<div class="layout">
+  </div>
 
-<div class="panel">
 
-<h3>📝 Latihan soal</h3>
+  <div class="section">
 
-<p>
-Uji pemahaman TJKT dan ASJ dengan soal pilihan ganda
-dan skor otomatis.
-</p>
+    <div class="sectionHead">
+      <div>
+        <h2>Akses Cepat</h2>
+        <p>Langsung menuju bagian yang kamu butuhkan.</p>
+      </div>
+    </div>
 
-<button class="primary" data-page="soal">
-Mulai latihan →
-</button>
+    <div class="quick">
 
-</div>
+      <div class="quickBox" data-page="materi">
+        <h3>📚 Materi</h3>
+        <p>
+          Pelajari materi TJKT dan ASJ dengan penjelasan singkat.
+        </p>
+      </div>
 
-<div class="panel">
+      <div class="quickBox" data-page="soal">
+        <h3>📝 Latihan</h3>
+        <p>
+          Uji pemahaman kamu dengan soal latihan.
+        </p>
+      </div>
 
-<h3>🧮 Subnet Tool</h3>
+      <div class="quickBox" data-page="tools">
+        <h3>🛠️ Tools</h3>
+        <p>
+          Gunakan tools jaringan untuk membantu perhitungan.
+        </p>
+      </div>
 
-<p>
-Hitung network, broadcast, host, dan subnet mask
-dari IPv4/CIDR.
-</p>
+    </div>
 
-<button class="primary" data-page="tools">
-Buka tool →
-</button>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
 <!-- MATERI -->
-<section id="materi" class="page" style="display:none">
+<section id="materi" class="page">
 
-<div class="section" style="padding-top:42px">
+  <div class="section">
 
-<div class="section-head">
+    <div class="sectionHead">
+      <div>
+        <div class="eyebrow">RIZZ / MATERIAL</div>
+        <h2>Materi</h2>
+        <p>Pilih materi yang ingin kamu pelajari.</p>
+      </div>
+    </div>
 
-<div>
-<div class="eyebrow">RIZZ / MATERIALS</div>
-<h2>Materi TJKT & ASJ</h2>
-</div>
+    <input
+      id="search"
+      class="search"
+      type="text"
+      placeholder="Cari materi..."
+      autocomplete="off"
+    >
 
-<div class="search">
-<input id="search" placeholder="Search materi...">
-<button>⌕</button>
-</div>
+    <div class="grid" id="allCards"></div>
 
-</div>
+    <div class="reader panel" id="reader">
 
-<div class="cards" id="allCards"></div>
+      <div class="eyebrow">READER</div>
 
-<div class="panel reader" id="reader">
+      <h3>Pilih materi</h3>
 
-<div class="eyebrow">
-READER
-</div>
+      <p style="color:var(--muted)">
+        Klik salah satu kartu materi untuk mulai membaca.
+      </p>
 
-<h3>Pilih materi</h3>
+    </div>
 
-<p>
-Klik kartu materi untuk membuka materi secara lengkap.
-</p>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- SOAL -->
-<section id="soal" class="page" style="display:none">
+<!-- HALAMAN PEMBACA MATERI -->
+<section id="readerPage" class="page">
 
-<div class="section" style="padding-top:42px">
+  <div class="section">
 
-<div class="eyebrow">
-RIZZ / QUIZ
-</div>
+    <button type="button" class="secondary backBtn" id="backReader">
+      ← Kembali ke Materi
+    </button>
 
-<h2>Latihan Soal</h2>
+    <div class="panel">
 
-<div class="panel quiz">
+      <div id="readerFull"></div>
 
-<div class="qmeta">
-<span id="qcat">TJKT</span>
-<span id="qcount">1 / 12</span>
-</div>
+    </div>
 
-<div class="question" id="question"></div>
+  </div>
 
-<div class="answers" id="answers"></div>
+</section>
 
-<div class="quizbar">
 
-<span class="muted" id="feedback"></span>
+<!-- LATIHAN -->
+<section id="soal" class="page">
 
-<button class="primary" id="next" disabled>
-Berikutnya →
-</button>
+  <div class="section">
 
-</div>
+    <div class="sectionHead">
+      <div>
+        <div class="eyebrow">RIZZ / PRACTICE</div>
+        <h2>Latihan Soal</h2>
+        <p>Uji pemahaman kamu.</p>
+      </div>
+    </div>
 
-</div>
+    <div class="quizBox panel">
 
-</div>
+      <div class="quizMeta">
+        <span id="qcat">TJKT</span>
+        <span id="qcount">1 / 12</span>
+      </div>
+
+      <div class="question" id="question"></div>
+
+      <div class="answers" id="answers"></div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <button type="button" class="primary" id="next">
+        Soal Berikutnya
+      </button>
+
+    </div>
+
+  </div>
 
 </section>
 
 
 <!-- TOOLS -->
-<section id="tools" class="page" style="display:none">
+<section id="tools" class="page">
 
-<div class="section" style="padding-top:42px">
+  <div class="section">
 
-<div class="eyebrow">
-RIZZ / NETWORK TOOL
-</div>
+    <div class="sectionHead">
+      <div>
+        <div class="eyebrow">RIZZ / TOOLS</div>
+        <h2>Subnet Calculator</h2>
+        <p>Hitung informasi dasar dari sebuah IPv4.</p>
+      </div>
+    </div>
 
-<h2>Subnet Calculator</h2>
+    <div class="panel">
 
-<div class="panel">
+      <div class="formGrid">
 
-<div class="toolgrid">
+        <div>
+          <label for="ip">IP Address</label>
+          <input
+            class="input"
+            id="ip"
+            value="192.168.1.1"
+            placeholder="Contoh: 192.168.1.1"
+          >
+        </div>
 
-<div class="field">
+        <div>
+          <label for="prefix">Prefix</label>
+          <input
+            class="input"
+            id="prefix"
+            value="24"
+            type="number"
+            min="0"
+            max="32"
+            placeholder="Contoh: 24"
+          >
+        </div>
 
-<label>IPv4 ADDRESS</label>
+      </div>
 
-<input id="ip" value="192.168.46.5">
+      <div style="margin-top:18px">
+        <button type="button" class="primary" id="calc">
+          Hitung
+        </button>
+      </div>
 
-</div>
+      <div class="result" id="result">
+        Masukkan IP dan prefix lalu tekan Hitung.
+      </div>
 
-<div class="field">
+    </div>
 
-<label>PREFIX / CIDR</label>
-
-<input id="prefix"
-type="number"
-min="0"
-max="32"
-value="24">
-
-</div>
-
-</div>
-
-<button
-class="primary"
-id="calc"
-style="margin-top:14px">
-
-Calculate
-
-</button>
-
-<div class="result" id="result"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ABOUT -->
-<section id="about" class="page" style="display:none">
-
-<div class="section" style="padding-top:42px">
-
-<div class="eyebrow">
-RIZZ / ABOUT
-</div>
-
-<h2>Tentang</h2>
-
-<div class="about">
-
-<div class="aboutbox">
-
-<h3>RIZZ Learning Hub</h3>
-
-<p>
-Portal belajar V1 untuk siswa TJKT dan ASJ.
-Dibuat dengan desain dark, minimal, ringan,
-dan fokus untuk belajar.
-</p>
-
-</div>
-
-<div class="aboutbox">
-
-<h3>Isi V1</h3>
-
-<p>
-Materi, pencarian, reader materi,
-latihan soal, dan subnet calculator.
-Semuanya berjalan langsung di browser
-tanpa database.
-</p>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
-</main>
+
+<!-- TENTANG -->
+<section id="tentang" class="page">
+
+  <div class="section">
+
+    <div class="sectionHead">
+      <div>
+        <div class="eyebrow">RIZZ / ABOUT</div>
+        <h2>Tentang</h2>
+      </div>
+    </div>
+
+    <div class="panel about">
+
+      <p>
+        <b>RIZZ / LEARNING HUB</b> adalah website belajar sederhana
+        untuk membantu memahami materi TJKT dan ASJ.
+      </p>
+
+      <p>
+        Materi dibuat dengan konsep ringkas supaya lebih mudah dipelajari
+        dan dipahami.
+      </p>
+
+      <p>
+        Website ini berisi materi, latihan soal, dan beberapa tools
+        jaringan.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <footer>
-
-<div class="wrap">
-RIZZ / LEARNING HUB — V1 • TJKT / ASJ
-</div>
-
+  RIZZ / LEARNING HUB
 </footer>
 
 <div class="toast" id="toast"></div>
 
 
 <script>
-
 /* =========================
    DATA MATERI
 ========================= */
 
 const M = [
 
-[
-"IP Address & Subnetting",
-"TJKT",
-"🌐",
-"Dasar IPv4, CIDR, subnet mask, network, broadcast dan host.",
-`
-<p>
-IP Address adalah alamat yang digunakan perangkat
-untuk berkomunikasi dalam jaringan.
-</p>
-
-<h4>IPv4</h4>
-
-<p>
-IPv4 terdiri dari 32 bit dan biasanya ditulis dalam
-empat bagian angka yang dipisahkan titik.
-</p>
-
-<div class="codebox">
-192.168.46.5
-</div>
-
-<h4>CIDR</h4>
-
-<p>
-CIDR menunjukkan berapa bit yang digunakan untuk bagian
-network.
-</p>
-
-<div class="codebox">
-192.168.46.5/24
-</div>
-
-<p>
-Prefix /24 menggunakan subnet mask:
-</p>
-
-<div class="codebox">
-255.255.255.0
-</div>
-
-<h4>Network Address</h4>
-
-<p>
-Network adalah alamat pertama dari sebuah subnet.
-Alamat ini digunakan untuk mengidentifikasi jaringan.
-</p>
-
-<h4>Broadcast Address</h4>
-
-<p>
-Broadcast adalah alamat terakhir dari subnet dan digunakan
-untuk mengirim paket ke seluruh host dalam subnet.
-</p>
-`
-],
-
-[
-"MikroTik Dasar",
-"TJKT",
-"📡",
-"IP, DNS, DHCP dan NAT.",
-`
-<p>
-MikroTik merupakan perangkat dan sistem operasi jaringan
-yang banyak digunakan untuk mengatur router.
-</p>
-
-<h4>IP Address</h4>
-
-<p>
-IP address diberikan pada interface router agar router
-dapat berkomunikasi dengan jaringan.
-</p>
-
-<h4>DNS</h4>
-
-<p>
-DNS digunakan untuk menerjemahkan nama domain menjadi
-alamat IP.
-</p>
-
-<h4>DHCP</h4>
-
-<p>
-DHCP dapat memberikan konfigurasi IP secara otomatis
-kepada client.
-</p>
-
-<h4>NAT</h4>
-
-<p>
-NAT digunakan untuk menerjemahkan alamat IP private
-agar dapat berkomunikasi dengan jaringan lain.
-</p>
-`
-],
-
-[
-"Cisco & Packet Tracer",
-"TJKT",
-"🖧",
-"Switch, router, VLAN dan konfigurasi dasar.",
-`
-<p>
-Cisco Packet Tracer digunakan untuk membuat simulasi
-jaringan sebelum konfigurasi dilakukan pada perangkat nyata.
-</p>
-
-<h4>Mode Dasar Cisco</h4>
-
-<div class="codebox">
-enable
-
-configure terminal
-
-hostname RIZZ-SW
-
-interface vlan 1
-
-ip address 192.168.1.2 255.255.255.0
-
-no shutdown
-
-exit
-</div>
-
-<h4>VLAN</h4>
-
-<p>
-VLAN digunakan untuk membagi jaringan secara logis
-di dalam switch.
-</p>
-
-<h4>Router</h4>
-
-<p>
-Router digunakan untuk menghubungkan jaringan yang berbeda.
-</p>
-`
-],
-
-[
-"Computer Hardware",
-"TJKT",
-"🖥️",
-"CPU, RAM, storage, motherboard, PSU dan NIC.",
-`
-<h4>CPU</h4>
-
-<p>
-CPU merupakan komponen yang menjalankan instruksi
-dan memproses data.
-</p>
-
-<h4>RAM</h4>
-
-<p>
-RAM digunakan sebagai memori kerja sementara ketika
-komputer sedang menjalankan program.
-</p>
-
-<h4>Storage</h4>
-
-<p>
-Storage seperti SSD dan HDD digunakan untuk menyimpan
-data secara permanen.
-</p>
-
-<h4>Motherboard</h4>
-
-<p>
-Motherboard menjadi tempat berbagai komponen komputer
-terhubung satu sama lain.
-</p>
-
-<h4>NIC</h4>
-
-<p>
-NIC atau Network Interface Card digunakan untuk koneksi
-jaringan.
-</p>
-`
-],
-
-[
-"Control Panel Hosting",
-"ASJ",
-"☁️",
-"cPanel, CyberPanel dan layanan hosting.",
-`
-<p>
-Control panel hosting adalah antarmuka yang digunakan
-untuk mengelola layanan hosting dengan lebih mudah.
-</p>
-
-<h4>Contoh</h4>
-
-<p>
-Beberapa control panel yang umum digunakan adalah
-cPanel dan CyberPanel.
-</p>
-
-<h4>Layanan</h4>
-
-<p>
-Control panel dapat digunakan untuk mengelola:
-</p>
-
-<div class="codebox">
-Website
-Domain
-Database
-Email
-File
-DNS
-SSL
-</div>
-`
-],
-
-[
-"VPS vs Shared Hosting",
-"ASJ",
-"🗄️",
-"Perbedaan resource dan kontrol.",
-`
-<h4>Shared Hosting</h4>
-
-<p>
-Shared hosting berarti beberapa pengguna menggunakan
-resource server yang sama.
-</p>
-
-<h4>VPS</h4>
-
-<p>
-VPS merupakan server virtual yang memberikan lingkungan
-yang lebih terisolasi dan kontrol lebih besar.
-</p>
-
-<h4>Kesimpulan</h4>
-
-<p>
-Shared hosting biasanya lebih sederhana untuk pemula,
-sedangkan VPS memberikan fleksibilitas dan kontrol lebih besar.
-</p>
-`
-],
-
-[
-"Linux Dasar",
-"ASJ",
-"🐧",
-"Perintah terminal dasar.",
-`
-<p>
-Linux banyak digunakan pada server karena ringan,
-fleksibel dan dapat dikonfigurasi melalui terminal.
-</p>
-
-<h4>Perintah dasar</h4>
-
-<div class="codebox">
-pwd
-ls
-cd
-mkdir
-cp
-mv
-rm
-</div>
-
-<h4>Contoh</h4>
-
-<div class="codebox">
-mkdir belajar
-
-cd belajar
-
-touch catatan.txt
-
-ls
-</div>
-`
-],
-
-[
-"Keamanan Jaringan",
-"TJKT",
-"🔐",
-"Password, firewall, update, backup dan akses.",
-`
-<p>
-Keamanan jaringan bertujuan menjaga sistem,
-data dan komunikasi dari akses yang tidak diinginkan.
-</p>
-
-<h4>Hal penting</h4>
-
-<div class="codebox">
-Password kuat
-Firewall
-Update sistem
-Backup
-Kontrol akses
-Monitoring
-</div>
-
-<p>
-Keamanan tidak hanya bergantung pada satu fitur.
-Beberapa lapisan perlindungan perlu digunakan bersama.
-</p>
-`
-]
+  [
+    "IP Address & Subnetting",
+    "TJKT",
+    "🌐",
+    "Dasar IP Address dan subnetting.",
+    `
+      <p>
+        IP Address adalah alamat yang digunakan untuk mengidentifikasi
+        perangkat dalam sebuah jaringan.
+      </p>
+
+      <h4>IPv4</h4>
+
+      <p>
+        IPv4 terdiri dari 32 bit dan biasanya ditulis dalam empat bagian
+        desimal, contohnya <code>192.168.1.1</code>.
+      </p>
+
+      <h4>Subnet Mask</h4>
+
+      <p>
+        Subnet mask menentukan bagian network dan bagian host dari sebuah
+        IP Address.
+      </p>
+
+      <h4>Contoh</h4>
+
+      <p>
+        <code>192.168.1.0/24</code> memiliki subnet mask
+        <code>255.255.255.0</code>.
+      </p>
+    `
+  ],
+
+  [
+    "MikroTik Dasar",
+    "TJKT",
+    "📡",
+    "Pengenalan konfigurasi dasar MikroTik.",
+    `
+      <p>
+        MikroTik adalah perangkat dan sistem operasi jaringan yang banyak
+        digunakan untuk mengatur jaringan.
+      </p>
+
+      <h4>Fungsi</h4>
+
+      <p>
+        MikroTik dapat digunakan untuk routing, DHCP, NAT, firewall,
+        bandwidth management, dan berbagai fungsi jaringan lainnya.
+      </p>
+
+      <h4>Winbox</h4>
+
+      <p>
+        Winbox merupakan salah satu aplikasi yang dapat digunakan untuk
+        mengkonfigurasi RouterOS.
+      </p>
+    `
+  ],
+
+  [
+    "Cisco & Packet Tracer",
+    "TJKT",
+    "🖧",
+    "Dasar konfigurasi perangkat Cisco.",
+    `
+      <p>
+        Cisco Packet Tracer digunakan untuk melakukan simulasi jaringan
+        sebelum konfigurasi diterapkan pada perangkat sebenarnya.
+      </p>
+
+      <h4>Mode Dasar Cisco</h4>
+
+      <p>
+        Beberapa mode yang sering digunakan adalah User EXEC,
+        Privileged EXEC, dan Global Configuration.
+      </p>
+
+      <h4>Contoh</h4>
+
+      <p>
+        <code>enable</code> digunakan untuk masuk ke Privileged EXEC.
+      </p>
+
+      <p>
+        <code>configure terminal</code> digunakan untuk masuk ke konfigurasi
+        global.
+      </p>
+    `
+  ],
+
+  [
+    "Computer Hardware",
+    "TJKT",
+    "🖥️",
+    "Mengenal perangkat keras komputer.",
+    `
+      <p>
+        Hardware adalah komponen fisik yang terdapat pada komputer.
+      </p>
+
+      <h4>Contoh Hardware</h4>
+
+      <p>
+        CPU, RAM, motherboard, storage, power supply, monitor,
+        keyboard, dan mouse.
+      </p>
+
+      <h4>CPU</h4>
+
+      <p>
+        CPU berfungsi menjalankan instruksi dan memproses data.
+      </p>
+
+      <h4>RAM</h4>
+
+      <p>
+        RAM digunakan sebagai tempat penyimpanan data sementara yang
+        sedang digunakan oleh sistem.
+      </p>
+    `
+  ],
+
+  [
+    "Control Panel Hosting",
+    "ASJ",
+    "☁️",
+    "Pengertian dan fungsi control panel hosting.",
+    `
+      <p>
+        Control panel hosting adalah antarmuka yang digunakan untuk
+        mengelola layanan hosting dengan lebih mudah.
+      </p>
+
+      <h4>Contoh Layanan</h4>
+
+      <p>
+        Pengelolaan file, database, email, domain, DNS, dan backup.
+      </p>
+
+      <h4>Contoh Control Panel</h4>
+
+      <p>
+        cPanel dan CyberPanel merupakan contoh control panel hosting.
+      </p>
+    `
+  ],
+
+  [
+    "VPS vs Shared Hosting",
+    "ASJ",
+    "🗄️",
+    "Perbedaan VPS dan shared hosting.",
+    `
+      <p>
+        Shared hosting adalah hosting yang sumber dayanya digunakan
+        bersama beberapa pengguna.
+      </p>
+
+      <p>
+        VPS memberikan lingkungan server virtual yang lebih terisolasi
+        dan memiliki kontrol lebih besar.
+      </p>
+
+      <h4>Kesimpulan</h4>
+
+      <p>
+        Shared hosting cocok untuk kebutuhan sederhana, sedangkan VPS
+        cocok ketika membutuhkan kontrol dan sumber daya yang lebih besar.
+      </p>
+    `
+  ],
+
+  [
+    "Linux Dasar",
+    "ASJ",
+    "🐧",
+    "Pengenalan sistem operasi Linux.",
+    `
+      <p>
+        Linux adalah sistem operasi open-source yang banyak digunakan
+        pada server.
+      </p>
+
+      <h4>Command Dasar</h4>
+
+      <p>
+        <code>ls</code> untuk melihat isi direktori.
+      </p>
+
+      <p>
+        <code>cd</code> untuk berpindah direktori.
+      </p>
+
+      <p>
+        <code>pwd</code> untuk melihat lokasi direktori saat ini.
+      </p>
+
+      <p>
+        <code>mkdir</code> untuk membuat direktori.
+      </p>
+    `
+  ],
+
+  [
+    "Keamanan Jaringan",
+    "TJKT",
+    "🔐",
+    "Dasar keamanan jaringan komputer.",
+    `
+      <p>
+        Keamanan jaringan bertujuan melindungi jaringan dan data dari
+        akses yang tidak diinginkan.
+      </p>
+
+      <h4>Contoh</h4>
+
+      <p>
+        Firewall, autentikasi, password yang kuat, pembaruan sistem,
+        dan pembatasan hak akses.
+      </p>
+
+      <h4>Tujuan</h4>
+
+      <p>
+        Menjaga kerahasiaan, integritas, dan ketersediaan data.
+      </p>
+    `
+  ]
 
 ];
 
@@ -1222,279 +1139,84 @@ Beberapa lapisan perlindungan perlu digunakan bersama.
 
 const Q = [
 
-[
-"TJKT",
-"Subnet mask digunakan untuk...",
-"Menentukan network dan host",
-"Mengubah IP jadi domain",
-"Membuat kabel",
-"Mengganti monitor",
-0
-],
-
-[
-"TJKT",
-"/24 sama dengan...",
-"255.255.255.0",
-"255.255.0.0",
-"255.0.0.0",
-"255.255.255.252",
-0
-],
-
-[
-"TJKT",
-"Perangkat yang menghubungkan jaringan berbeda adalah...",
-"Router",
-"RAM",
-"Monitor",
-"Keyboard",
-0
-],
-
-[
-"TJKT",
-"DHCP digunakan untuk...",
-"Memberikan konfigurasi IP otomatis",
-"Membuat kabel",
-"Menghapus DNS",
-"Mematikan server",
-0
-],
-
-[
-"ASJ",
-"cPanel adalah...",
-"Control panel hosting",
-"Bahasa pemrograman",
-"Sistem operasi",
-"Kartu jaringan",
-0
-],
-
-[
-"ASJ",
-"VPS umumnya memiliki...",
-"Kontrol resource lebih besar",
-"Tidak punya IP",
-"Tidak membutuhkan server",
-"Hanya untuk email",
-0
-],
-
-[
-"TJKT",
-"Mode konfigurasi global Cisco menggunakan...",
-"configure terminal",
-"show run",
-"ping",
-"copy",
-0
-],
-
-[
-"TJKT",
-"RAM berfungsi sebagai...",
-"Memori kerja sementara",
-"Penyimpanan permanen",
-"Sumber listrik",
-"Router",
-0
-],
-
-[
-"ASJ",
-"Perintah Linux untuk melihat isi folder...",
-"ls",
-"cd",
-"pwd",
-"mkdir",
-0
-],
-
-[
-"TJKT",
-"Broadcast adalah...",
-"Alamat terakhir subnet",
-"Alamat pertama subnet",
-"Alamat DNS",
-"Alamat gateway saja",
-0
-],
-
-[
-"ASJ",
-"Control panel dapat digunakan untuk mengelola...",
-"Database",
-"CPU fisik",
-"Kabel LAN",
-"Printer kelas",
-0
-],
-
-[
-"TJKT",
-"NAT masquerade berguna untuk...",
-"Menyamarkan IP private saat keluar",
-"Membuat RAM",
-"Menghapus VLAN",
-"Mengganti monitor",
-0
-]
-
-];
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-const $ = id => document.getElementById(id);
-
-function go(id){
-
-  document
-  .querySelectorAll(".page")
-  .forEach(p => p.style.display="none");
-
-  $(id).style.display="block";
-
-  document
-  .querySelectorAll("nav button")
-  .forEach(b =>
-    b.classList.toggle(
-      "active",
-      b.dataset.page===id
-    )
-  );
-
-  scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-}
-
-
-document
-.querySelectorAll("[data-page]")
-.forEach(b => {
-
-  b.onclick = () => {
-
-    go(b.dataset.page);
-
-    const nav =
-      document.querySelector("nav");
-
-    if(window.innerWidth <= 720){
-      nav.style.display="";
-    }
-
-  };
-
-});
-
-
-/* MOBILE MENU */
-
-$("mobileBtn").onclick = () => {
-
-  let n=document.querySelector("nav");
-
-  if(n.style.display==="grid"){
-
-    n.style.display="";
-
-  }else{
-
-    n.style.display="grid";
-    n.style.position="absolute";
-    n.style.top="62px";
-    n.style.left="14px";
-    n.style.right="14px";
-    n.style.padding="10px";
-    n.style.background="#0c1017";
-    n.style.border="1px solid #1c2430";
-    n.style.borderRadius="10px";
-    n.style.flexDirection="column";
-
-  }
-
-};
-
-
-/* =========================
-   MATERIAL CARDS
-========================= */
-
-function cards(data,target){
-
-  $(target).innerHTML =
-    data.map((m,i)=>`
-
-      <article
-        class="card"
-        data-i="${M.indexOf(m)}"
-      >
-
-        <span class="number">
-          ${String(i+1).padStart(2,"0")} / ${m[1]}
-        </span>
-
-        <div class="icon">
-          ${m[2]}
-        </div>
-
-        <h3>
-          ${m[0]}
-        </h3>
-
-        <p>
-          ${m[3]}
-        </p>
-
-      </article>
-
-    `).join("");
-
-
-  document
-  .querySelectorAll("#"+target+" .card")
-  .forEach(c => {
-
-    c.onclick = () =>
-      read(+c.dataset.i);
-
-  });
-
-}
-
-
-/* =========================
-   MATERIAL READER
-========================= */
-
-function read(i){
-
-  let m=M[i];
-
-  go("materi");
-
-  $("reader").innerHTML = `
-
-    <div class="reader-head">
-
-      <div>
-
-        <div class="eyebrow">
-          ${m[1]} / READER
-        </div>
-
-        <h2 class="reader-title">
-          ${m[2]} ${m[0]}
-        </h2>
-
-      </div>
-
-      <button
-      
+  {
+    cat:"TJKT",
+    q:"Berapa bit panjang alamat IPv4?",
+    a:["16 bit","32 bit","64 bit","128 bit"],
+    c:1
+  },
+
+  {
+    cat:"TJKT",
+    q:"Apa fungsi subnet mask?",
+    a:[
+      "Menentukan network dan host",
+      "Membuat password",
+      "Menghapus IP",
+      "Mematikan router"
+    ],
+    c:0
+  },
+
+  {
+    cat:"TJKT",
+    q:"Perintah Cisco untuk masuk ke privileged EXEC adalah...",
+    a:[
+      "start",
+      "enable",
+      "router",
+      "login"
+    ],
+    c:1
+  },
+
+  {
+    cat:"TJKT",
+    q:"Perangkat yang menghubungkan beberapa jaringan berbeda disebut...",
+    a:[
+      "Router",
+      "Keyboard",
+      "Monitor",
+      "RAM"
+    ],
+    c:0
+  },
+
+  {
+    cat:"ASJ",
+    q:"Apa kepanjangan dari VPS?",
+    a:[
+      "Virtual Private Server",
+      "Very Public System",
+      "Virtual Personal Switch",
+      "Variable Private Storage"
+    ],
+    c:0
+  },
+
+  {
+    cat:"ASJ",
+    q:"Contoh control panel hosting adalah...",
+    a:[
+      "Photoshop",
+      "cPanel",
+      "Packet Tracer",
+      "Winamp"
+    ],
+    c:1
+  },
+
+  {
+    cat:"ASJ",
+    q:"Command Linux untuk melihat isi direktori adalah...",
+    a:[
+      "ls",
+      "see",
+      "showall",
+      "dirlist"
+    ],
+    c:0
+  },
+
+  {
+    cat
