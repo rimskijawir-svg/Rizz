@@ -20,13 +20,9 @@
 --yellow:#ffd166;
 }
 
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
 margin:0;
@@ -36,10 +32,7 @@ font-family:Inter,Arial,system-ui,sans-serif;
 font-size:14px;
 }
 
-button,
-input{
-font:inherit;
-}
+button,input{font:inherit}
 
 button{
 -webkit-tap-highlight-color:transparent;
@@ -51,8 +44,7 @@ margin:auto;
 padding:0 18px;
 }
 
-/* ================= HEADER ================= */
-
+/* HEADER */
 header{
 min-height:72px;
 border-bottom:1px solid var(--line);
@@ -80,9 +72,7 @@ font-size:19px;
 white-space:nowrap;
 }
 
-.logo span{
-color:var(--green);
-}
+.logo span{color:var(--green)}
 
 nav{
 display:flex;
@@ -106,9 +96,7 @@ background:#101722;
 border-color:#202a38;
 }
 
-nav button:active{
-transform:scale(.96);
-}
+nav button:active{transform:scale(.96)}
 
 .lang{
 color:#929aa7;
@@ -125,8 +113,7 @@ padding:8px 11px;
 cursor:pointer;
 }
 
-/* ================= HERO ================= */
-
+/* HERO */
 .hero{
 padding:70px 0 58px;
 border-bottom:1px solid var(--line);
@@ -175,8 +162,7 @@ border-radius:50%;
 box-shadow:0 0 12px var(--green);
 }
 
-/* ================= SECTION ================= */
-
+/* SECTION */
 .section{
 padding:38px 0;
 border-bottom:1px solid var(--line);
@@ -196,8 +182,7 @@ letter-spacing:-.03em;
 margin:6px 0;
 }
 
-/* ================= SEARCH ================= */
-
+/* SEARCH */
 .search{
 width:min(460px,100%);
 display:flex;
@@ -226,8 +211,7 @@ border-left:1px solid var(--line);
 cursor:pointer;
 }
 
-/* ================= CARDS ================= */
-
+/* CARDS */
 .cards{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -251,9 +235,7 @@ background:#0f151e;
 transform:translateY(-3px);
 }
 
-.card:active{
-transform:scale(.985);
-}
+.card:active{transform:scale(.985)}
 
 .number{
 font-size:11px;
@@ -277,8 +259,7 @@ line-height:1.5;
 margin:0;
 }
 
-/* ================= PANELS ================= */
-
+/* PANELS */
 .layout{
 display:grid;
 grid-template-columns:1.3fr .7fr;
@@ -292,9 +273,7 @@ padding:20px;
 border-radius:10px;
 }
 
-.panel h3{
-margin:0 0 5px;
-}
+.panel h3{margin:0 0 5px}
 
 .panel p{
 color:#788291;
@@ -318,9 +297,7 @@ transform:translateY(-2px);
 box-shadow:0 7px 20px rgba(49,229,140,.15);
 }
 
-.primary:active{
-transform:scale(.97);
-}
+.primary:active{transform:scale(.97)}
 
 .primary:disabled{
 opacity:.45;
@@ -328,12 +305,9 @@ cursor:not-allowed;
 transform:none;
 }
 
-.muted{
-color:#687382;
-}
+.muted{color:#687382}
 
-/* ================= TOOLS ================= */
-
+/* TOOLS */
 .toolgrid{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -357,9 +331,7 @@ padding:11px;
 outline:none;
 }
 
-.field input:focus{
-border-color:var(--green);
-}
+.field input:focus{border-color:var(--green)}
 
 .result{
 display:grid;
@@ -382,8 +354,7 @@ font-size:10px;
 margin-bottom:4px;
 }
 
-/* ================= ABOUT ================= */
-
+/* ABOUT */
 .about{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -401,8 +372,7 @@ color:#788291;
 line-height:1.7;
 }
 
-/* ================= PAGE ================= */
-
+/* PAGE */
 .page.entering{
 animation:pageEnter .35s ease both;
 }
@@ -418,18 +388,14 @@ transform:none;
 }
 }
 
-.material-page{
-display:none;
-}
+.material-page{display:none}
 
 .material-page.active{
 display:block;
 animation:pageEnter .35s ease both;
 }
 
-.material-content{
-max-width:850px;
-}
+.material-content{max-width:850px}
 
 .material-content h2{
 font-size:30px;
@@ -447,16 +413,11 @@ color:#8993a1;
 line-height:1.8;
 }
 
-.material-content h3{
-margin-top:28px;
-}
+.material-content h3{margin-top:28px}
 
-.back-material{
-margin-bottom:20px;
-}
+.back-material{margin-bottom:20px}
 
-/* ================= QUIZ ================= */
-
+/* QUIZ */
 .level-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
@@ -479,9 +440,7 @@ transform:translateY(-4px);
 background:#10161f;
 }
 
-.level-card:active{
-transform:scale(.98);
-}
+.level-card:active{transform:scale(.98)}
 
 .level-card.locked{
 opacity:.42;
@@ -510,9 +469,7 @@ color:var(--green);
 margin-top:13px;
 }
 
-.quiz{
-max-width:760px;
-}
+.quiz{max-width:760px}
 
 .quiz-progress{
 height:5px;
@@ -599,8 +556,7 @@ font-size:11px;
 color:#8c97a5;
 }
 
-/* ================= PROFILE ================= */
-
+/* PROFILE */
 .profile-head{
 display:flex;
 align-items:center;
@@ -615,9 +571,7 @@ border-radius:18px;
 touch-action:manipulation;
 }
 
-.profile-head:hover{
-background:#101722;
-}
+.profile-head:hover{background:#101722}
 
 .profile-head:active{
 background:#151e2b;
@@ -711,8 +665,7 @@ color:var(--muted);
 font-size:10px;
 }
 
-/* ================= OWNER ================= */
-
+/* OWNER */
 .owner-panel{
 display:none;
 margin-top:20px;
@@ -751,9 +704,7 @@ background:#07090d;
 color:var(--text);
 }
 
-.owner-input:focus{
-border-color:var(--green);
-}
+.owner-input:focus{border-color:var(--green)}
 
 .owner-btn{
 width:100%;
@@ -773,9 +724,7 @@ display:none;
 margin-top:15px;
 }
 
-.owner-custom.show{
-display:block;
-}
+.owner-custom.show{display:block}
 
 @keyframes ownerReveal{
 from{
@@ -790,8 +739,7 @@ filter:none;
 }
 }
 
-/* ================= RANK UP ================= */
-
+/* RANK */
 .rankup-overlay{
 position:fixed;
 inset:0;
@@ -823,13 +771,9 @@ transform:scale(.88);
 transition:.35s;
 }
 
-.rankup-overlay.show .rankup-box{
-transform:none;
-}
+.rankup-overlay.show .rankup-box{transform:none}
 
-.rankup-crown{
-font-size:52px;
-}
+.rankup-crown{font-size:52px}
 
 .rankup-small{
 color:var(--muted);
@@ -850,8 +794,7 @@ font-size:20px;
 font-weight:900;
 }
 
-/* ================= TOAST ================= */
-
+/* TOAST */
 .toast{
 position:fixed;
 right:18px;
@@ -873,25 +816,19 @@ opacity:1;
 transform:none;
 }
 
-/* ================= FOOTER ================= */
-
+/* FOOTER */
 footer{
 padding:35px 0;
 color:#505b69;
 font-size:11px;
 }
 
-/* ================= MOBILE ================= */
-
+/* MOBILE */
 @media(max-width:720px){
 
-.wrap{
-padding:0 14px;
-}
+.wrap{padding:0 14px}
 
-header{
-min-height:62px;
-}
+header{min-height:62px}
 
 .head{
 width:100%;
@@ -907,13 +844,9 @@ font-size:17px;
 flex:1;
 }
 
-.lang{
-display:none;
-}
+.lang{display:none}
 
-.mobile{
-display:block;
-}
+.mobile{display:block}
 
 nav{
 display:none;
@@ -927,9 +860,7 @@ border:1px solid var(--line);
 border-radius:10px;
 }
 
-nav.open{
-display:flex;
-}
+nav.open{display:flex}
 
 nav button{
 width:100%;
@@ -941,47 +872,31 @@ padding:11px 13px;
 padding:48px 0 40px;
 }
 
-.hero h1{
-font-size:52px;
-}
+.hero h1{font-size:52px}
 
-.cards{
-grid-template-columns:1fr;
-}
+.cards{grid-template-columns:1fr}
 
 .layout,
 .about{
 grid-template-columns:1fr;
 }
 
-.section{
-padding:30px 0;
-}
+.section{padding:30px 0}
 
 .section-head{
 align-items:start;
 flex-direction:column;
 }
 
-.search{
-width:100%;
-}
+.search{width:100%}
 
-.toolgrid{
-grid-template-columns:1fr;
-}
+.toolgrid{grid-template-columns:1fr}
 
-.level-grid{
-grid-template-columns:1fr 1fr;
-}
+.level-grid{grid-template-columns:1fr 1fr}
 
-.stat-grid{
-grid-template-columns:1fr 1fr;
-}
+.stat-grid{grid-template-columns:1fr 1fr}
 
-.profile-name{
-font-size:21px;
-}
+.profile-name{font-size:21px}
 
 .profile-avatar{
 width:64px;
@@ -993,27 +908,17 @@ align-items:stretch;
 flex-direction:column;
 }
 
-.quizbar .primary{
-width:100%;
-}
+.quizbar .primary{width:100%}
 
-.result{
-grid-template-columns:1fr;
-}
+.result{grid-template-columns:1fr}
 
 }
-
-/* VERY SMALL SCREEN */
 
 @media(max-width:400px){
 
-.level-grid{
-grid-template-columns:1fr;
-}
+.level-grid{grid-template-columns:1fr}
 
-.hero h1{
-font-size:45px;
-}
+.hero h1{font-size:45px}
 
 }
 </style>
@@ -1022,65 +927,33 @@ font-size:45px;
 <body>
 
 <header>
-
 <div class="wrap head">
 
-<div class="logo">
-SMK <span>/</span> LEARNING HUB
-</div>
+<div class="logo">SMK <span>/</span> LEARNING HUB</div>
 
 <nav id="mainNav">
-
-<button class="active" data-page="home">
-Home
-</button>
-
-<button data-page="materi">
-Materi
-</button>
-
-<button data-page="soal">
-Latihan
-</button>
-
-<button data-page="tools">
-Tools
-</button>
-
-<button data-page="profil">
-Profil
-</button>
-
-<button data-page="about">
-Tentang
-</button>
-
+<button class="active" data-page="home">Home</button>
+<button data-page="materi">Materi</button>
+<button data-page="soal">Latihan</button>
+<button data-page="tools">Tools</button>
+<button data-page="profil">Profil</button>
+<button data-page="about">Tentang</button>
 </nav>
 
-<div class="lang">
-ID
-</div>
+<div class="lang">ID</div>
 
-<button class="mobile" id="mobileBtn">
-☰
-</button>
+<button class="mobile" id="mobileBtn" type="button">☰</button>
 
 </div>
-
 </header>
-
 
 <main class="wrap">
 
 <!-- HOME -->
-
 <section id="home" class="page">
 
 <div class="hero">
-
-<div class="eyebrow">
-SMK / TJKT / ASJ
-</div>
+<div class="eyebrow">SMK / TJKT / ASJ</div>
 
 <h1>
 Belajar.<br>
@@ -1096,97 +969,67 @@ latihan soal, dan tools yang sering dipakai siswa SMK.
 <i class="dot"></i>
 V2 / ONLINE
 </div>
-
 </div>
-
 
 <div class="section">
 
 <div class="section-head">
-
 <div>
-<div class="eyebrow">
-LATEST / MATERIAL
+<div class="eyebrow">LATEST / MATERIAL</div>
+<h2>Materi terbaru</h2>
 </div>
 
-<h2>
-Materi terbaru
-</h2>
-</div>
-
-<button class="primary" data-page="materi">
+<button class="primary" type="button" data-page="materi">
 Lihat semua
 </button>
-
 </div>
 
 <div class="cards" id="homeCards"></div>
 
 </div>
 
-
 <div class="section">
 
 <div class="section-head">
-
 <div>
-<div class="eyebrow">
-QUICK ACCESS
+<div class="eyebrow">QUICK ACCESS</div>
+<h2>Akses cepat</h2>
 </div>
-
-<h2>
-Akses cepat
-</h2>
-
-</div>
-
 </div>
 
 <div class="layout">
 
 <div class="panel">
-
-<h3>
-📝 Latihan soal
-</h3>
+<h3>📝 Latihan soal</h3>
 
 <p>
 Uji pemahaman TJKT dan ASJ dengan 4 tingkat kesulitan,
 soal acak, dan sistem XP.
 </p>
 
-<button class="primary" data-page="soal">
+<button class="primary" type="button" data-page="soal">
 Mulai latihan →
 </button>
-
 </div>
 
-
 <div class="panel">
-
-<h3>
-🧮 Subnet Tool
-</h3>
+<h3>🧮 Subnet Tool</h3>
 
 <p>
 Hitung network, broadcast, host, dan subnet mask dari IPv4/CIDR.
 </p>
 
-<button class="primary" data-page="tools">
+<button class="primary" type="button" data-page="tools">
 Buka tool →
 </button>
-
 </div>
 
 </div>
-
 </div>
 
 </section>
 
-
 <!-- MATERI -->
-
 <section id="materi" class="page" style="display:none">
 
 <div class="section" style="padding-top:42px">
@@ -1194,28 +1037,13 @@ Buka tool →
 <div class="section-head">
 
 <div>
-
-<div class="eyebrow">
-SMK / MATERIALS
-</div>
-
-<h2>
-Materi TJKT & ASJ
-</h2>
-
+<div class="eyebrow">SMK / MATERIALS</div>
+<h2>Materi TJKT & ASJ</h2>
 </div>
 
 <div class="search">
-
-<input
-id="search"
-placeholder="Search materi..."
->
-
-<button>
-⌕
-</button>
-
+<input id="search" placeholder="Search materi...">
+<button type="button">⌕</button>
 </div>
 
 </div>
@@ -1223,56 +1051,35 @@ placeholder="Search materi..."
 <div class="cards" id="allCards"></div>
 
 <div class="panel" style="margin-top:20px">
-
-<div class="eyebrow">
-READER
-</div>
-
-<h3>
-Pilih materi
-</h3>
-
-<p>
-Klik kartu materi untuk membuka materi.
-</p>
-
+<div class="eyebrow">READER</div>
+<h3>Pilih materi</h3>
+<p>Klik kartu materi untuk membuka materi.</p>
 </div>
 
 </div>
-
 </section>
 
-
-<!-- MATERIAL DETAIL -->
-
+<!-- DETAIL -->
 <section id="materialPage" class="material-page">
 
 <div class="section" style="padding-top:42px">
 
-<button class="primary back-material" id="backMaterial">
+<button class="primary back-material" id="backMaterial" type="button">
 ← Kembali
 </button>
 
 <div class="panel material-content" id="materialContent"></div>
 
 </div>
-
 </section>
 
-
 <!-- QUIZ -->
-
 <section id="soal" class="page" style="display:none">
 
 <div class="section" style="padding-top:42px">
 
-<div class="eyebrow">
-SMK / QUIZ
-</div>
-
-<h2>
-Latihan Soal
-</h2>
+<div class="eyebrow">SMK / QUIZ</div>
+<h2>Latihan Soal</h2>
 
 <div id="levelSelector">
 
@@ -1283,107 +1090,43 @@ Pilih level. Setiap sesi berisi 30 soal yang diacak.
 <div class="level-grid">
 
 <div class="level-card" data-level="easy">
-
-<div class="level-icon">
-🟢
+<div class="level-icon">🟢</div>
+<div class="level-name">Easy</div>
+<div class="level-info">Dasar jaringan & sistem</div>
+<div class="level-best" id="best-easy">Best: 0%</div>
 </div>
-
-<div class="level-name">
-Easy
-</div>
-
-<div class="level-info">
-Dasar jaringan & sistem
-</div>
-
-<div class="level-best" id="best-easy">
-Best: 0%
-</div>
-
-</div>
-
 
 <div class="level-card" data-level="normal">
-
-<div class="level-icon">
-🟡
+<div class="level-icon">🟡</div>
+<div class="level-name">Normal</div>
+<div class="level-info">Unlock Easy ≥ 70%</div>
+<div class="level-best" id="best-normal">🔒 Terkunci</div>
 </div>
-
-<div class="level-name">
-Normal
-</div>
-
-<div class="level-info">
-Unlock Easy ≥ 70%
-</div>
-
-<div class="level-best" id="best-normal">
-🔒 Terkunci
-</div>
-
-</div>
-
 
 <div class="level-card" data-level="hard">
-
-<div class="level-icon">
-🟠
+<div class="level-icon">🟠</div>
+<div class="level-name">Hard</div>
+<div class="level-info">Unlock Normal ≥ 75%</div>
+<div class="level-best" id="best-hard">🔒 Terkunci</div>
 </div>
-
-<div class="level-name">
-Hard
-</div>
-
-<div class="level-info">
-Unlock Normal ≥ 75%
-</div>
-
-<div class="level-best" id="best-hard">
-🔒 Terkunci
-</div>
-
-</div>
-
 
 <div class="level-card" data-level="expert">
-
-<div class="level-icon">
-🔴
-</div>
-
-<div class="level-name">
-Expert
-</div>
-
-<div class="level-info">
-Unlock Hard ≥ 80%
-</div>
-
-<div class="level-best" id="best-expert">
-🔒 Terkunci
+<div class="level-icon">🔴</div>
+<div class="level-name">Expert</div>
+<div class="level-info">Unlock Hard ≥ 80%</div>
+<div class="level-best" id="best-expert">🔒 Terkunci</div>
 </div>
 
 </div>
-
 </div>
-
-</div>
-
 
 <div id="quizArea" style="display:none">
 
 <div class="panel quiz">
 
 <div class="qmeta">
-
-<span id="qcat">
-TJKT / EASY
-</span>
-
-<span id="qcount">
-1 / 30
-</span>
-
+<span id="qcat">TJKT / EASY</span>
+<span id="qcount">1 / 30</span>
 </div>
 
 <div class="quiz-progress">
@@ -1395,13 +1138,11 @@ TJKT / EASY
 <div class="answers" id="answers"></div>
 
 <div class="quizbar">
-
 <span class="muted" id="feedback"></span>
 
-<button class="primary" id="next" disabled>
+<button class="primary" id="next" type="button" disabled>
 Berikutnya →
 </button>
-
 </div>
 
 <div class="quiz-score">
@@ -1415,38 +1156,27 @@ Berikutnya →
 </div>
 
 </div>
-
 </div>
 
 <button
 class="primary"
 id="quitQuiz"
-style="margin-top:12px;background:#151d28;color:#dbe3ec"
->
+type="button"
+style="margin-top:12px;background:#151d28;color:#dbe3ec">
 ← Keluar Quiz
 </button>
 
 </div>
-
 </div>
-
 </section>
 
-
 <!-- PROFILE -->
-
 <section id="profil" class="page" style="display:none">
 
 <div class="section" style="padding-top:42px">
 
-<div class="eyebrow">
-SMK / PROFILE
-</div>
-
-<h2>
-Profil
-</h2>
-
+<div class="eyebrow">SMK / PROFILE</div>
+<h2>Profil</h2>
 
 <div class="panel">
 
@@ -1455,49 +1185,25 @@ class="profile-head"
 id="ownerTrigger"
 role="button"
 tabindex="0"
-aria-label="Profil Rizki"
->
+aria-label="Profil Rizki">
 
-<div class="profile-avatar">
-R
-</div>
+<div class="profile-avatar">R</div>
 
 <div>
-
-<div class="profile-name">
-Rizki
-</div>
-
-<div class="rank-title" id="profileRank">
-Beginner
-</div>
-
-<div class="owner-hint">
-PROFILE
+<div class="profile-name">Rizki</div>
+<div class="rank-title" id="profileRank">Beginner</div>
+<div class="owner-hint">PROFILE</div>
 </div>
 
 </div>
-
-</div>
-
 
 <div style="margin-top:25px">
 
-<div class="xp-number" id="profileXP">
-0
-</div>
-
-<div class="xp-label">
-TOTAL XP
-</div>
+<div class="xp-number" id="profileXP">0</div>
+<div class="xp-label">TOTAL XP</div>
 
 <div class="xp-track">
-
-<div
-class="xp-fill"
-id="xpFill"
-></div>
-
+<div class="xp-fill" id="xpFill"></div>
 </div>
 
 <div class="rank-next" id="rankNext">
@@ -1506,57 +1212,28 @@ id="xpFill"
 
 </div>
 
-
 <div class="stat-grid">
 
 <div class="stat">
-
-<b id="materialStat">
-0
-</b>
-
-<span>
-Materi dipelajari
-</span>
-
+<b id="materialStat">0</b>
+<span>Materi dipelajari</span>
 </div>
-
 
 <div class="stat">
-
-<b id="quizStat">
-0
-</b>
-
-<span>
-Quiz selesai
-</span>
-
+<b id="quizStat">0</b>
+<span>Quiz selesai</span>
 </div>
-
 
 <div class="stat">
-
-<b id="correctStat">
-0
-</b>
-
-<span>
-Jawaban benar
-</span>
-
+<b id="correctStat">0</b>
+<span>Jawaban benar</span>
 </div>
 
 </div>
-
-
-<!-- OWNER -->
 
 <div class="owner-panel" id="ownerPanel">
 
-<div class="owner-badge">
-👑 OWNER ACCESS
-</div>
+<div class="owner-badge">👑 OWNER ACCESS</div>
 
 <p style="color:var(--muted);font-size:12px">
 Secret access detected.
@@ -1567,85 +1244,113 @@ class="owner-input"
 id="ownerCode"
 type="password"
 placeholder="Masukkan kode..."
-autocomplete="off"
->
+autocomplete="off">
 
-<button
-class="owner-btn"
-id="unlockOwnerBtn"
->
+<button class="owner-btn" id="unlockOwnerBtn" type="button">
 Buka Owner Mode
 </button>
-
 
 <div class="owner-custom" id="ownerCustom">
 
 <input
 class="owner-input"
 id="customRank"
-placeholder="Custom Rank"
-/>
+placeholder="Custom Rank">
 
-<button
-class="owner-btn"
-id="saveRankBtn"
->
+<button class="owner-btn" id="saveRankBtn" type="button">
 Simpan Custom Rank
 </button>
 
 <button
 class="owner-btn"
 id="exitOwnerBtn"
-style="background:#151d28;color:#fff"
->
+type="button"
+style="background:#151d28;color:#fff">
 Keluar Owner Mode
 </button>
 
 </div>
-
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
 <!-- TOOLS -->
-
 <section id="tools" class="page" style="display:none">
 
 <div class="section" style="padding-top:42px">
 
-<div class="eyebrow">
-SMK / NETWORK TOOL
-</div>
-
-<h2>
-Subnet Calculator
-</h2>
+<div class="eyebrow">SMK / NETWORK TOOL</div>
+<h2>Subnet Calculator</h2>
 
 <div class="panel">
 
 <div class="toolgrid">
 
 <div class="field">
+<label>IPv4 ADDRESS</label>
+<input id="ip" value="192.168.46.5">
+</div>
 
-<label>
-IPv4 ADDRESS
-</label>
-
+<div class="field">
+<label>PREFIX / CIDR</label>
 <input
-id="ip"
-value="192.168.46.5"
->
+id="prefix"
+type="number"
+min="0"
+max="32"
+value="24">
+</div>
 
 </div>
 
+<button class="primary" id="calc" type="button" style="margin-top:14px">
+Calculate
+</button>
 
-<div class="field">
+<div class="result" id="result"></div>
 
-<label>
-PREFIX / CIDR
-<
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="page" style="display:none">
+
+<div class="section" style="padding-top:42px">
+
+<div class="eyebrow">SMK / ABOUT</div>
+<h2>Tentang</h2>
+
+<div class="about">
+
+<div class="aboutbox">
+<h3>SMK Learning Hub</h3>
+
+<p>
+Portal belajar untuk siswa TJKT dan ASJ.
+Materi, latihan, XP, rank, profile,
+dan tools dalam satu halaman.
+</p>
+</div>
+
+<div class="aboutbox">
+<h3>Isi V2</h3>
+
+<p>
+Materi, quiz 4 level, soal acak,
+XP system, rank progression,
+profile, owner easter egg,
+pencarian, dan subnet calculator.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="wra
